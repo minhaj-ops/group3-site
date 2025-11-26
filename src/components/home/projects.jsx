@@ -7,98 +7,117 @@ import {
   Button,
   CardMedia,
 } from "@mui/material";
+import { motion } from "framer-motion";
 import SectionHeader from "../common/section-header";
 import { ACCENT_COLOR, projectsData } from "../common/config";
 
-// ProjectCard component remains the same
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15, // delay between each card
+    },
+  },
+};
+
+// Variants for individual cards
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  hover: {
+    scale: 1.05,
+    boxShadow: `0 15px 25px -5px ${ACCENT_COLOR}40`,
+    transition: { duration: 0.3 },
+  },
+};
+
 const ProjectCard = ({ name, category, description, imageUrl }) => (
-  <Card
-    sx={{
-      bgcolor: "slate.800",
-      borderRadius: "12px",
-      boxShadow: 3,
-      overflow: "hidden",
-      position: "relative",
-      border: "1px solid #334155",
-      transition: "all 0.5s",
-      "&:hover .overlay": { opacity: 1 },
-      "&:hover img": { opacity: 0.5 },
-      "&:hover": { boxShadow: `0 10px 20px -5px ${ACCENT_COLOR}40` },
-    }}
-  >
-    <CardMedia
-      component="img"
-      height="250"
-      image={imageUrl}
-      alt={name}
+  <motion.div variants={cardVariants} whileHover="hover">
+    <Card
       sx={{
-        objectFit: "cover",
-        transition: "opacity 0.5s",
-      }}
-      onError={(e) => {
-        e.target.onerror = null;
-        e.target.src =
-          "https://placehold.co/400x250/1e293b/FFFFFF?text=Project";
-      }}
-    />
-    <Box
-      className="overlay"
-      sx={{
-        position: "absolute",
-        inset: 0,
-        bgcolor: "rgba(0,0,0,0.7)",
-        opacity: 0,
-        transition: "opacity 0.5s",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        bgcolor: "slate.800",
+        borderRadius: "12px",
+        boxShadow: 3,
+        overflow: "hidden",
+        position: "relative",
+        border: "1px solid #334155",
       }}
     >
-      <Button
-        variant="outlined"
+      <CardMedia
+        component="img"
+        height="250"
+        image={imageUrl}
+        alt={name}
         sx={{
-          borderColor: ACCENT_COLOR,
-          color: ACCENT_COLOR,
-          borderRadius: 50,
-          fontWeight: "bold",
-          py: 1,
-          px: 3,
-          textTransform: "none",
-          "&:hover": {
-            bgcolor: ACCENT_COLOR,
-            color: "#0F172A",
+          objectFit: "cover",
+          transition: "opacity 0.5s",
+        }}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src =
+            "https://placehold.co/400x250/1e293b/FFFFFF?text=Project";
+        }}
+      />
+      <Box
+        className="overlay"
+        sx={{
+          position: "absolute",
+          inset: 0,
+          bgcolor: "rgba(0,0,0,0.7)",
+          opacity: 0,
+          transition: "opacity 0.5s",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          "&:hover": { opacity: 1 },
+        }}
+      >
+        <Button
+          variant="outlined"
+          sx={{
             borderColor: ACCENT_COLOR,
-          },
-        }}
-      >
-        View Case Study
-      </Button>
-    </Box>
-    <CardContent sx={{ p: 3 }}>
-      <Typography
-        variant="caption"
-        sx={{
-          color: ACCENT_COLOR,
-          fontWeight: "semibold",
-          textTransform: "uppercase",
-          mb: 0.5,
-          display: "block",
-        }}
-      >
-        {category}
-      </Typography>
-      <Typography
-        variant="h5"
-        component="h4"
-        sx={{ fontWeight: "bold", color: "white", mb: 1 }}
-      >
-        {name}
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {description}
-      </Typography>
-    </CardContent>
-  </Card>
+            color: ACCENT_COLOR,
+            borderRadius: 50,
+            fontWeight: "bold",
+            py: 1,
+            px: 3,
+            textTransform: "none",
+            "&:hover": {
+              bgcolor: ACCENT_COLOR,
+              color: "#0F172A",
+              borderColor: ACCENT_COLOR,
+            },
+          }}
+        >
+          View Case Study
+        </Button>
+      </Box>
+      <CardContent sx={{ p: 3 }}>
+        <Typography
+          variant="caption"
+          sx={{
+            color: ACCENT_COLOR,
+            fontWeight: "semibold",
+            textTransform: "uppercase",
+            mb: 0.5,
+            display: "block",
+          }}
+        >
+          {category}
+        </Typography>
+        <Typography
+          variant="h5"
+          component="h4"
+          sx={{ fontWeight: "bold", color: "white", mb: 1 }}
+        >
+          {name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}
+        </Typography>
+      </CardContent>
+    </Card>
+  </motion.div>
 );
 
 const Projects = () => (
@@ -109,52 +128,59 @@ const Projects = () => (
   >
     <SectionHeader title="Showcase of Innovation" subtitle="Projects" />
     <Box sx={{ maxWidth: "1280px", mx: "auto", px: 3, mt: 4 }}>
-      {/* Replaced Grid container with a Flex Box container */}
-      <Box
-        sx={{
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        style={{
           display: "flex",
-          flexWrap: "wrap", // Allows the cards to wrap to the next line
-          gap: 4, // Spacing between items (equivalent to Grid spacing)
+          flexWrap: "wrap",
+          gap: "35px",
           justifyContent: "flex-start",
         }}
       >
         {projectsData.map((project, index) => (
-          // Replaced Grid item with a Box item
           <Box
             key={index}
             sx={{
-              // Responsive width calculation based on original Grid setup: xs=12, md=4
               width: {
-                xs: "100%", // 100% width on extra-small screens (1 card per row)
-                md: "calc(33.333% - 24px)", // 33.333% width minus adjustment for 4-unit gap (3 cards per row)
+                xs: "100%",
+                md: "calc(33.333% - 24px)",
               },
-              mb: 0, // Gap handles vertical spacing
             }}
           >
             <ProjectCard {...project} />
           </Box>
         ))}
-      </Box>
+      </motion.div>
+
       <Box sx={{ textAlign: "center", mt: 8 }}>
-        <Button
-          variant="outlined"
-          sx={{
-            borderColor: ACCENT_COLOR,
-            color: ACCENT_COLOR,
-            borderRadius: 50,
-            fontWeight: "bold",
-            py: 1.5,
-            px: 4,
-            textTransform: "none",
-            fontSize: "1rem",
-            "&:hover": {
-              bgcolor: ACCENT_COLOR + "1A",
-              borderColor: ACCENT_COLOR,
-            },
-          }}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.3 }}
         >
-          View All Projects
-        </Button>
+          <Button
+            variant="outlined"
+            sx={{
+              borderColor: ACCENT_COLOR,
+              color: ACCENT_COLOR,
+              borderRadius: 50,
+              fontWeight: "bold",
+              py: 1.5,
+              px: 4,
+              textTransform: "none",
+              fontSize: "1rem",
+              "&:hover": {
+                bgcolor: ACCENT_COLOR + "1A",
+                borderColor: ACCENT_COLOR,
+              },
+            }}
+          >
+            View All Projects
+          </Button>
+        </motion.div>
       </Box>
     </Box>
   </Box>

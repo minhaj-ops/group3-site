@@ -21,7 +21,7 @@ export const BACKGROUND_IMAGE_URL =
 export const FLOATING_LETTERS = "group3studiodigital";
 
 export const BACKGROUND_DEFAULT = "slate.900";
-export const BACKGROUND_PAPER = "#101F33";
+export const BACKGROUND_PAPER = "#1E293B";
 export const TEXT_PRIMARY = "#E0E7FF";
 export const TEXT_SECONDARY = "#A0B3D9";
 

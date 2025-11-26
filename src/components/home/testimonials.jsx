@@ -1,25 +1,42 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Box, Typography, Card, CardContent, IconButton } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionHeader from "../common/section-header";
 import { testimonialsData, ACCENT_COLOR, lucideIcons } from "../common/config";
 
 const { MessageSquare } = lucideIcons;
+
+const testimonialVariants = {
+  enter: { opacity: 0, x: 100, scale: 0.95 },
+  center: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+  exit: {
+    opacity: 0,
+    x: -100,
+    scale: 0.95,
+    transition: { duration: 0.6, ease: "easeIn" },
+  },
+};
 
 const TestimonialCard = ({ quote, author, title }) => (
   <Card
     sx={{
       bgcolor: "slate.800",
       borderRadius: "16px",
-      boxShadow: "0 10px 40px rgba(0, 0, 0, 0.5)",
+      boxShadow: "0 20px 60px rgba(0, 0, 0, 0.6)",
       height: "100%",
       display: "flex",
       flexDirection: "column",
       border: "1px solid #334155",
-      transition: "transform 0.3s ease-in-out",
+      overflow: "hidden",
     }}
   >
-    <CardContent sx={{ p: { xs: 4, sm: 8 }, flexGrow: 1 }}>
+    <CardContent sx={{ p: { xs: 4, sm: 6 }, flexGrow: 1 }}>
       <Box
         sx={{
           height: 3,
@@ -61,7 +78,6 @@ const TestimonialCard = ({ quote, author, title }) => (
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
   const maxSteps = testimonialsData.length;
 
   const nextTestimonial = useCallback(() => {
@@ -84,6 +100,7 @@ const Testimonials = () => {
       sx={{ py: { xs: 8, md: 12 }, bgcolor: "slate.800" }}
     >
       <SectionHeader title="What Our Clients Say" subtitle="Client Love" />
+
       <Box
         sx={{
           maxWidth: "900px",
@@ -91,30 +108,23 @@ const Testimonials = () => {
           px: 3,
           mt: 4,
           position: "relative",
-          "&:hover .MuiCard-root": {
-            transform: "translateY(-5px)",
-          },
         }}
       >
         <Box sx={{ overflow: "hidden", borderRadius: "16px", boxShadow: 8 }}>
-          <Box
-            sx={{
-              display: "flex",
-              transition: "transform 0.5s ease-in-out",
-              transform: `translateX(-${currentTestimonial * 100}%)`,
-            }}
-          >
-            {testimonialsData.map((testimonial, index) => (
-              <Box
-                key={index}
-                sx={{ flexShrink: 0, width: "100%", p: { xs: 1, sm: 2 } }}
-              >
-                <TestimonialCard {...testimonial} />
-              </Box>
-            ))}
-          </Box>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial}
+              variants={testimonialVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+            >
+              <TestimonialCard {...testimonialsData[currentTestimonial]} />
+            </motion.div>
+          </AnimatePresence>
         </Box>
 
+        {/* Navigation Buttons */}
         <IconButton
           onClick={prevTestimonial}
           sx={{
@@ -125,17 +135,14 @@ const Testimonials = () => {
             bgcolor: "slate.700",
             color: "white",
             border: `1px solid ${ACCENT_COLOR}`,
-            "&:hover": {
-              bgcolor: ACCENT_COLOR,
-              color: "slate.900",
-            },
+            "&:hover": { bgcolor: ACCENT_COLOR, color: "slate.900" },
             zIndex: 10,
             p: 1.5,
           }}
-          aria-label="Previous testimonial"
         >
           <KeyboardArrowLeft fontSize="large" />
         </IconButton>
+
         <IconButton
           onClick={nextTestimonial}
           sx={{
@@ -146,39 +153,35 @@ const Testimonials = () => {
             bgcolor: "slate.700",
             color: "white",
             border: `1px solid ${ACCENT_COLOR}`,
-            "&:hover": {
-              bgcolor: ACCENT_COLOR,
-              color: "slate.900",
-            },
+            "&:hover": { bgcolor: ACCENT_COLOR, color: "slate.900" },
             zIndex: 10,
             p: 1.5,
           }}
-          aria-label="Next testimonial"
         >
           <KeyboardArrowRight fontSize="large" />
         </IconButton>
 
+        {/* Dots */}
         <Box
           sx={{ display: "flex", justifyContent: "center", gap: 1.5, mt: 3 }}
         >
           {testimonialsData.map((_, index) => (
-            <Box
+            <motion.div
               key={index}
               onClick={() => setCurrentTestimonial(index)}
-              sx={{
+              whileHover={{ scale: 1.4 }}
+              style={{
                 width: 10,
                 height: 10,
                 borderRadius: "50%",
-                bgcolor:
+                backgroundColor:
                   index === currentTestimonial
                     ? ACCENT_COLOR
                     : "text.secondary",
                 opacity: index === currentTestimonial ? 1 : 0.4,
-                transition: "all 0.3s",
                 cursor: "pointer",
-                "&:hover": { bgcolor: ACCENT_COLOR, opacity: 0.8 },
+                transition: "all 0.3s",
               }}
-              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
         </Box>
