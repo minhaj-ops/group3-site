@@ -11,12 +11,23 @@ import {
   Github,
   Linkedin,
   MessageSquare,
+  Phone,
+  MapPin,
 } from "lucide-react";
 
 export const ACCENT_COLOR = "#FF6347";
 export const BACKGROUND_IMAGE_URL =
   "https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 export const FLOATING_LETTERS = "group3studiodigital";
+
+export const BACKGROUND_DEFAULT = "slate.900";
+export const BACKGROUND_PAPER = "#101F33";
+export const TEXT_PRIMARY = "#E0E7FF";
+export const TEXT_SECONDARY = "#A0B3D9";
+
+export const COMPANY_NAME = "Group3 Co";
+export const COMPANY_SLOGAN =
+  "We engineer future-ready digital products with excellence and impact.";
 
 export const servicesData = [
   {
@@ -105,6 +116,8 @@ export const lucideIcons = {
   Github,
   Linkedin,
   MessageSquare,
+  Phone,
+  MapPin,
 };
 
 export const navItems = [
@@ -114,3 +127,23 @@ export const navItems = [
   "Testimonials",
   "Contact",
 ];
+
+export const quickLinks = {
+  Services: [
+    { name: "Product Strategy", href: "#services-strategy" },
+    { name: "UI/UX Design", href: "#services-uiux" },
+    { name: "Full-Stack Dev", href: "#services-dev" },
+    { name: "Cloud Architecture", href: "#services-cloud" },
+  ],
+  Projects: [
+    { name: "SynapseAI", href: "#projects-synapse" },
+    { name: "EcoTrack Mobile", href: "#projects-ecotrack" },
+    { name: "Quantum-X API", href: "#projects-quantum" },
+  ],
+  Resources: [
+    { name: "Support", href: "#support" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Privacy Policy", href: "#privacy" },
+    { name: "Terms of Service", href: "#terms" },
+  ],
+};

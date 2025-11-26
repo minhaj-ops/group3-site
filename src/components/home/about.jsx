@@ -18,11 +18,10 @@ const About = () => (
         mx: "auto",
         px: 3,
         mt: 4,
-        // 1. Flex container setup for the main content
         display: "flex",
-        flexDirection: { xs: "column", lg: "row" }, // Stack on mobile, row on large screens
-        alignItems: "center", // Vertically align items in the row
-        gap: { xs: 5, md: 6 }, // Spacing between the text and image
+        flexDirection: { xs: "column", lg: "row" },
+        alignItems: "center",
+        gap: { xs: 5, md: 6 },
       }}
     >
       {/* 2. Text Content Box */}
@@ -76,8 +75,8 @@ const About = () => (
       {/* 3. Image Content Box */}
       <Box
         sx={{
-          flex: "1 1 50%", // Occupy 50% of space on large screens
-          order: { xs: 1, lg: 2 }, // Image first on mobile, second on desktop
+          flex: "1 1 50%",
+          order: { xs: 1, lg: 2 },
         }}
       >
         <Box

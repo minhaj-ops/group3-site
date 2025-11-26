@@ -4,6 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Home from "./pages/home";
 import { ACCENT_COLOR } from "./components/common/config";
 import Header from "./components/common/header";
+import Footer from "./components/common/footer";
 
 const darkTheme = createTheme({
   palette: {
@@ -72,6 +73,7 @@ export default function App() {
       <CssBaseline />
       <Header />
       <Home handleNavClick={handleNavClick} />
+      <Footer />
     </ThemeProvider>
   );
 }
