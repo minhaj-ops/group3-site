@@ -18,7 +18,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { ACCENT_COLOR } from "../common/config";
 
 const navLinks = [
-  { name: "About", href: "#about" },
+  { name: "About", href: "about" },
   { name: "Services", href: "#services" },
   { name: "Projects", href: "#projects" },
   { name: "Testimonials", href: "#testimonials" },

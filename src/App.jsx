@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home";
-// import About from "./pages/about";
+import About from "./pages/about";
 
 import { ACCENT_COLOR } from "./components/common/config";
 import Layout from "./components/layout";
@@ -42,7 +42,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            {/* <Route path="about" element={<About />} /> */}
+            <Route path="about" element={<About />} />
           </Route>
         </Routes>
       </BrowserRouter>
