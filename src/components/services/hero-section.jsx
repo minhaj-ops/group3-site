@@ -4,9 +4,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ACCENT_COLOR } from "../common/config";
 
 const BACKGROUND_IMAGE_URL =
-  "https://images.unsplash.com/photo-1506377190479-79a0229c669d?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=1080";
+  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80";
 
-const FLOATING_LETTERS = "MISSION PEOPLE VALUE STRATEGY VISION";
+const FLOATING_LETTERS = "SERVICES DESIGN DEV STRATEGY SOLUTIONS";
 
 const generateLetterPositions = (text) => {
   return text.split("").map((letter, index) => ({
@@ -14,8 +14,8 @@ const generateLetterPositions = (text) => {
     key: index,
     top: `${5 + Math.random() * 90}vh`,
     left: `${2 + Math.random() * 94}vw`,
-    opacity: 0.05 + Math.random() * 0.12,
-    fontSize: `${1.6 + Math.random() * 2.5}rem`,
+    opacity: 0.04 + Math.random() * 0.15,
+    fontSize: `${1.8 + Math.random() * 3}rem`,
     rotation: Math.random() * 360,
     floatOffset: Math.random() * 18 + 6,
     delay: Math.random() * 2,
@@ -26,33 +26,30 @@ const MotionBox = motion(Box);
 const MotionTypography = motion(Typography);
 const MotionButton = motion(Button);
 
-const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
+const ServicesHeroSection = ({ onNavClick = () => {} }) => {
   const [letters, setLetters] = useState([]);
 
-  // 💫 Generate floating letters
   useEffect(() => {
     setLetters(generateLetterPositions(FLOATING_LETTERS));
   }, []);
 
-  // 🔥 Background blur on scroll
   const { scrollY } = useScroll();
   const blurAmount = useTransform(scrollY, [0, 400], ["0px", "8px"]);
 
   return (
     <Box
-      id="about-hero"
+      id="services-hero"
       sx={{
         width: "100%",
-        minHeight: "80vh",
+        minHeight: "70vh",
         position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "column",
         overflow: "hidden",
+        flexDirection: "column",
       }}
     >
-      {/* Background with scroll blur */}
       <MotionBox
         style={{ filter: blurAmount }}
         sx={{
@@ -62,35 +59,28 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           zIndex: 0,
-          filter: "brightness(0.35)",
         }}
       />
 
-      {/* Cinematic Dark Gradient */}
-      <Box
+      <MotionBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.9 }}
         sx={{
           position: "absolute",
           inset: 0,
           zIndex: 1,
-          background: `
-            linear-gradient(
-              180deg,
-              rgba(0,0,0,0.85) 0%,
-              rgba(0,0,0,0.45) 50%,
-              rgba(0,0,0,0.85) 100%
-            )
-          `,
+          background: `linear-gradient(180deg, rgba(15,23,42,0.94) 0%, ${ACCENT_COLOR}33 50%, rgba(15,23,42,0.94) 100%)`,
         }}
       />
 
-      {/* Vignette edges */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
+          boxShadow: "inset 0px 0px 200px 80px rgba(0,0,0,0.8)", // Vignette
           zIndex: 2,
           pointerEvents: "none",
-          boxShadow: "inset 0px 0px 200px 80px rgba(0,0,0,0.85)",
         }}
       />
 
@@ -99,9 +89,9 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
         sx={{
           position: "absolute",
           inset: 0,
-          zIndex: 2,
           pointerEvents: "none",
           display: { xs: "none", lg: "block" },
+          zIndex: 2,
         }}
       >
         {letters.map(
@@ -124,9 +114,9 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
                 color: "white",
                 top,
                 left,
-                fontSize,
                 opacity,
-                fontWeight: 700,
+                fontSize,
+                fontWeight: 800,
                 fontFamily: "monospace",
                 userSelect: "none",
               }}
@@ -137,8 +127,8 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
               }}
               transition={{
                 duration: 6 + Math.random() * 6,
-                repeat: Infinity,
                 ease: "easeInOut",
+                repeat: Infinity,
                 delay,
               }}
             >
@@ -148,7 +138,7 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
         )}
       </Box>
 
-      {/* HERO TEXT CONTENT */}
+      {/* TEXT CONTENT */}
       <Container maxWidth="md" sx={{ zIndex: 3, textAlign: "center", px: 3 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,52 +155,52 @@ const AboutUsHeroSection = ({ onNavClick = () => {} }) => {
               mb: 2,
             }}
           >
-            Our Mission • Our Vision • Our People
+            Our Services
           </Typography>
 
           <Typography
             variant="h3"
             sx={{
-              fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.5rem" },
+              fontSize: { xs: "2.4rem", sm: "3.4rem", md: "4.2rem" },
               fontWeight: 800,
               color: "white",
               lineHeight: 1.05,
               mb: 3,
-              textShadow: "0 4px 20px rgba(0,0,0,0.9)",
+              textShadow: "0 3px 15px rgba(0,0,0,0.8)",
             }}
           >
-            Building the Future, <br />
+            Empowering Businesses
+            <br />
             <Box component="span" sx={{ color: ACCENT_COLOR }}>
-              One Innovation
-            </Box>{" "}
-            at a Time.
+              Through Technology
+            </Box>
           </Typography>
-
+          {/* 
           <MotionButton
             variant="contained"
             size="large"
-            onClick={() => onNavClick("team")}
+            onClick={() => onNavClick("services-list")}
             sx={{
               bgcolor: ACCENT_COLOR,
               color: "#0F172A",
               fontWeight: "bold",
-              borderRadius: "50px",
+              borderRadius: 50,
               px: 5,
               py: 1.7,
-              fontSize: "1.15rem",
-              boxShadow: `0 8px 20px 5px ${ACCENT_COLOR}55`,
               textTransform: "none",
+              fontSize: "1.1rem",
+              boxShadow: `0 8px 20px 5px ${ACCENT_COLOR}55`,
               "&:hover": { bgcolor: ACCENT_COLOR },
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Meet the Team
-          </MotionButton>
+            Explore Services
+          </MotionButton> */}
         </motion.div>
       </Container>
     </Box>
   );
 };
 
-export default AboutUsHeroSection;
+export default ServicesHeroSection;
