@@ -20,7 +20,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ACCENT_COLOR, lucideIcons } from "../common/config";
 
-const { Home, Users, Briefcase, Cloud, FolderOpen, MessageSquare, Mail } = lucideIcons;
+const { Home, Users, Briefcase, Cloud, Folder, MessageSquare, Mail, ArrowRight } = lucideIcons;
 
 const MotionBox = motion(Box);
 
@@ -29,7 +29,7 @@ const navLinks = [
   { name: "About", href: "/about", icon: Users },
   { name: "Services", href: "/services", icon: Briefcase },
   { name: "Microsoft Solutions", href: "/microsoft-solutions", icon: Cloud },
-  { name: "Projects", href: "/projects", icon: FolderOpen },
+  { name: "Projects", href: "/projects", icon: Folder },
   { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
@@ -71,7 +71,7 @@ const Header = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
       sx={{
-        width: { xs: "85vw", sm: 320 },
+        width: "100vw",
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -112,10 +112,11 @@ const Header = () => {
         sx={{
           position: "relative",
           zIndex: 2,
-          p: 3,
-          pb: 2,
+          p: 2.5,
+          pb: 1.5,
           background: `linear-gradient(135deg, ${ACCENT_COLOR}10 0%, transparent 100%)`,
           borderBottom: `1px solid ${ACCENT_COLOR}20`,
+          flexShrink: 0,
         }}
       >
         <Box
@@ -182,19 +183,14 @@ const Header = () => {
       <Box
         sx={{
           flex: 1,
-          overflowY: "auto",
+          overflowY: "visible",
           position: "relative",
           zIndex: 2,
-          "&::-webkit-scrollbar": {
-            width: "4px",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            backgroundColor: `${ACCENT_COLOR}40`,
-            borderRadius: "2px",
-          },
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        <List sx={{ px: 2, pt: 2 }}>
+        <List sx={{ px: 3, pt: 1.5, pb: 1, flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: 0.5 }}>
           {navLinks.map((link, index) => {
             const Icon = link.icon;
             const active = isActive(link.href);
@@ -220,10 +216,10 @@ const Header = () => {
                     to={link.href}
                     onClick={handleNavClick}
                     sx={{
-                      py: 1.8,
+                      py: 1.5,
                       px: 2.5,
                       borderRadius: "16px",
-                      mb: 0.5,
+                      mb: 0.3,
                       borderLeft: active
                         ? `4px solid ${ACCENT_COLOR}`
                         : "4px solid transparent",
@@ -326,15 +322,16 @@ const Header = () => {
         sx={{
           position: "relative",
           zIndex: 2,
-          p: 3,
-          pt: 2,
+          p: 2.5,
+          pt: 1.5,
           borderTop: `1px solid ${ACCENT_COLOR}20`,
           background: `linear-gradient(180deg, transparent 0%, ${ACCENT_COLOR}05 100%)`,
+          flexShrink: 0,
         }}
       >
         <Divider
           sx={{
-            mb: 3,
+            mb: 2,
             borderColor: `${ACCENT_COLOR}20`,
           }}
         />
@@ -394,8 +391,11 @@ const Header = () => {
         position="fixed"
         component={motion.header}
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        animate={{ 
+          y: 0,
+          opacity: drawerOpen ? 0 : 1,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
         sx={{
           bgcolor: scrolled ? "rgba(15, 23, 42, 0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "blur(10px)",
@@ -407,6 +407,8 @@ const Header = () => {
             : "1px solid transparent",
           transition: "all 0.3s ease-in-out",
           zIndex: (theme) => theme.zIndex.drawer + 1,
+          pointerEvents: drawerOpen ? "none" : "auto",
+          visibility: drawerOpen ? "hidden" : "visible",
         }}
       >
         <Toolbar
@@ -603,8 +605,8 @@ const Header = () => {
         }}
         PaperProps={{
           sx: {
-            width: { xs: "85vw", sm: 320 },
-            maxWidth: 320,
+            width: "100vw",
+            maxWidth: "100vw",
             bgcolor: "#0F172A",
             color: "white",
             borderRight: `2px solid ${ACCENT_COLOR}40`,

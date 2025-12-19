@@ -36,7 +36,8 @@ import {
   Brain,
   Network,
   Workflow,
-  FolderOpen,
+  Folder,
+  House,
 } from "lucide-react";
 
 export const ACCENT_COLOR = "#FF6347";
@@ -301,7 +302,8 @@ export const lucideIcons = {
   Brain,
   Network,
   Workflow,
-  FolderOpen,
+  Folder,
+  Home: House,
 };
 
 export const navItems = [
