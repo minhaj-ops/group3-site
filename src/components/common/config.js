@@ -33,6 +33,10 @@ import {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  Brain,
+  Network,
+  Workflow,
+  FolderOpen,
 } from "lucide-react";
 
 export const ACCENT_COLOR = "#FF6347";
@@ -294,6 +298,10 @@ export const lucideIcons = {
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  Brain,
+  Network,
+  Workflow,
+  FolderOpen,
 };
 
 export const navItems = [

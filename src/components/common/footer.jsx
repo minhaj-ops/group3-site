@@ -206,7 +206,7 @@ const quickLinks = {
     { name: "Product Strategy", href: "/services" },
     { name: "UI/UX Design", href: "/services" },
     { name: "Full-Stack Dev", href: "/services" },
-    { name: "Cloud Solutions", href: "/services" },
+    { name: "Microsoft Solutions", href: "/microsoft-solutions" },
   ],
   Resources: [
     { name: "Case Studies", href: "/projects" },

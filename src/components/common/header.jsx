@@ -12,22 +12,26 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Divider,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { ACCENT_COLOR } from "../common/config";
+import { ACCENT_COLOR, lucideIcons } from "../common/config";
+
+const { Home, Users, Briefcase, Cloud, FolderOpen, MessageSquare, Mail } = lucideIcons;
 
 const MotionBox = motion(Box);
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Projects", href: "/projects" },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: Users },
+  { name: "Services", href: "/services", icon: Briefcase },
+  { name: "Microsoft Solutions", href: "/microsoft-solutions", icon: Cloud },
+  { name: "Projects", href: "/projects", icon: FolderOpen },
+  { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
+  { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 const Header = () => {
@@ -60,111 +64,328 @@ const Header = () => {
   const isActive = (href) => location.pathname === href;
 
   const drawerList = (
-    <Box
+    <MotionBox
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
-      sx={{ width: 280 }}
+      sx={{
+        width: { xs: "85vw", sm: 320 },
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
+      {/* Background decorative elements */}
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          p: 1.5,
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "200px",
+          height: "200px",
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${ACCENT_COLOR}15 0%, transparent 70%)`,
+          filter: "blur(40px)",
+          pointerEvents: "none",
         }}
-      >
-        <IconButton onClick={toggleDrawer(false)} sx={{ color: "white" }}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-
-      <Typography
-        variant="h6"
-        noWrap
-        component={Link}
-        to="/"
-        onClick={handleNavClick}
+      />
+      <Box
         sx={{
-          textAlign: "center",
-          display: "block",
-          mb: 3,
-          fontFamily: "'Outfit', sans-serif",
-          fontWeight: 700,
-          letterSpacing: ".02rem",
-          color: ACCENT_COLOR,
-          textDecoration: "none",
+          position: "absolute",
+          bottom: "-50px",
+          left: "-50px",
+          width: "150px",
+          height: "150px",
+          borderRadius: "50%",
+          background: `radial-gradient(circle, ${ACCENT_COLOR}10 0%, transparent 70%)`,
+          filter: "blur(30px)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Header Section */}
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          p: 3,
+          pb: 2,
+          background: `linear-gradient(135deg, ${ACCENT_COLOR}10 0%, transparent 100%)`,
+          borderBottom: `1px solid ${ACCENT_COLOR}20`,
         }}
       >
-        Group3 Co
-      </Typography>
-
-      <List>
-        {navLinks.map((link, index) => (
-          <motion.div
-            key={link.name}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 2,
+          }}
+        >
+          <Typography
+            variant="h5"
+            component={Link}
+            to="/"
+            onClick={handleNavClick}
+            sx={{
+              fontFamily: "'Outfit', sans-serif",
+              fontWeight: 800,
+              letterSpacing: ".02rem",
+              background: `linear-gradient(135deg, ${ACCENT_COLOR} 0%, #ff8c69 100%)`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textDecoration: "none",
+            }}
           >
-            <ListItem disablePadding>
-              <ListItemButton
-                component={Link}
-                to={link.href}
-                onClick={handleNavClick}
-                sx={{
-                  py: 1.5,
-                  borderLeft: isActive(link.href)
-                    ? `3px solid ${ACCENT_COLOR}`
-                    : "3px solid transparent",
-                  bgcolor: isActive(link.href) ? `${ACCENT_COLOR}15` : "transparent",
-                  "&:hover": {
-                    bgcolor: `${ACCENT_COLOR}15`,
-                  },
-                }}
-              >
-                <ListItemText
-                  primary={link.name}
-                  primaryTypographyProps={{
-                    sx: {
-                      fontWeight: isActive(link.href) ? 700 : 500,
-                      fontSize: "1.1rem",
-                      color: isActive(link.href) ? ACCENT_COLOR : "white",
-                      "&:hover": { color: ACCENT_COLOR },
-                    },
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          </motion.div>
-        ))}
-        <ListItem sx={{ px: 2, pt: 3 }}>
+            Group3 Co
+          </Typography>
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            style={{ width: "100%" }}
+            whileHover={{ scale: 1.1, rotate: 90 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
           >
-            <Button
-              variant="contained"
-              fullWidth
-              component={Link}
-              to="/contact"
-              onClick={handleNavClick}
+            <IconButton
+              onClick={toggleDrawer(false)}
               sx={{
-                bgcolor: ACCENT_COLOR,
-                color: "#0F172A",
-                py: 1.2,
-                fontWeight: "bold",
-                textTransform: "none",
-                borderRadius: "50px",
-                fontSize: "1rem",
-                boxShadow: `0 4px 15px ${ACCENT_COLOR}40`,
+                color: "white",
+                bgcolor: `${ACCENT_COLOR}20`,
+                border: `1px solid ${ACCENT_COLOR}40`,
+                "&:hover": {
+                  bgcolor: ACCENT_COLOR,
+                  color: "#0F172A",
+                },
               }}
             >
-              Get in Touch
-            </Button>
+              <CloseIcon />
+            </IconButton>
           </motion.div>
-        </ListItem>
-      </List>
-    </Box>
+        </Box>
+        <Typography
+          variant="caption"
+          sx={{
+            color: "#A0B3D9",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.75rem",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+          }}
+        >
+          Navigation Menu
+        </Typography>
+      </Box>
+
+      {/* Navigation List */}
+      <Box
+        sx={{
+          flex: 1,
+          overflowY: "auto",
+          position: "relative",
+          zIndex: 2,
+          "&::-webkit-scrollbar": {
+            width: "4px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: `${ACCENT_COLOR}40`,
+            borderRadius: "2px",
+          },
+        }}
+      >
+        <List sx={{ px: 2, pt: 2 }}>
+          {navLinks.map((link, index) => {
+            const Icon = link.icon;
+            const active = isActive(link.href);
+            return (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: index * 0.08,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+              >
+                <ListItem
+                  disablePadding
+                  sx={{
+                    mb: 0.5,
+                  }}
+                >
+                  <ListItemButton
+                    component={Link}
+                    to={link.href}
+                    onClick={handleNavClick}
+                    sx={{
+                      py: 1.8,
+                      px: 2.5,
+                      borderRadius: "16px",
+                      mb: 0.5,
+                      borderLeft: active
+                        ? `4px solid ${ACCENT_COLOR}`
+                        : "4px solid transparent",
+                      bgcolor: active
+                        ? `${ACCENT_COLOR}20`
+                        : "transparent",
+                      position: "relative",
+                      overflow: "hidden",
+                      transition: "all 0.3s ease",
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: active
+                          ? `linear-gradient(135deg, ${ACCENT_COLOR}15 0%, transparent 100%)`
+                          : "transparent",
+                        opacity: active ? 1 : 0,
+                        transition: "opacity 0.3s ease",
+                      },
+                      "&:hover": {
+                        bgcolor: `${ACCENT_COLOR}15`,
+                        transform: "translateX(5px)",
+                        "&::before": {
+                          opacity: 1,
+                        },
+                      },
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        width: "100%",
+                        position: "relative",
+                        zIndex: 1,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          p: 1,
+                          borderRadius: "12px",
+                          bgcolor: active
+                            ? `${ACCENT_COLOR}30`
+                            : `${ACCENT_COLOR}10`,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          transition: "all 0.3s ease",
+                        }}
+                      >
+                        <Icon
+                          size={20}
+                          color={active ? ACCENT_COLOR : "#A0B3D9"}
+                        />
+                      </Box>
+                      <ListItemText
+                        primary={link.name}
+                        primaryTypographyProps={{
+                          sx: {
+                            fontWeight: active ? 700 : 500,
+                            fontSize: "1rem",
+                            fontFamily: "'DM Sans', sans-serif",
+                            color: active ? ACCENT_COLOR : "white",
+                            transition: "all 0.3s ease",
+                          },
+                        }}
+                      />
+                      {active && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 200 }}
+                        >
+                          <Box
+                            sx={{
+                              width: 6,
+                              height: 6,
+                              borderRadius: "50%",
+                              bgcolor: ACCENT_COLOR,
+                              boxShadow: `0 0 10px ${ACCENT_COLOR}60`,
+                            }}
+                          />
+                        </motion.div>
+                      )}
+                    </Box>
+                  </ListItemButton>
+                </ListItem>
+              </motion.div>
+            );
+          })}
+        </List>
+      </Box>
+
+      {/* Footer Section with CTA */}
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          p: 3,
+          pt: 2,
+          borderTop: `1px solid ${ACCENT_COLOR}20`,
+          background: `linear-gradient(180deg, transparent 0%, ${ACCENT_COLOR}05 100%)`,
+        }}
+      >
+        <Divider
+          sx={{
+            mb: 3,
+            borderColor: `${ACCENT_COLOR}20`,
+          }}
+        />
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          style={{ width: "100%" }}
+        >
+          <Button
+            variant="contained"
+            fullWidth
+            component={Link}
+            to="/contact"
+            onClick={handleNavClick}
+            endIcon={<ArrowRight size={18} />}
+            sx={{
+              bgcolor: ACCENT_COLOR,
+              color: "#0F172A",
+              py: 1.5,
+              fontWeight: 700,
+              textTransform: "none",
+              borderRadius: "16px",
+              fontSize: "1rem",
+              fontFamily: "'DM Sans', sans-serif",
+              boxShadow: `0 6px 20px ${ACCENT_COLOR}50`,
+              transition: "all 0.3s ease",
+              "&:hover": {
+                bgcolor: ACCENT_COLOR,
+                boxShadow: `0 8px 30px ${ACCENT_COLOR}70`,
+                transform: "translateY(-2px)",
+              },
+            }}
+          >
+            Get in Touch
+          </Button>
+        </motion.div>
+        <Typography
+          variant="caption"
+          sx={{
+            display: "block",
+            textAlign: "center",
+            mt: 2,
+            color: "#A0B3D9",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.75rem",
+          }}
+        >
+          Let's build something amazing together
+        </Typography>
+      </Box>
+    </MotionBox>
   );
 
   return (
@@ -377,14 +598,25 @@ const Header = () => {
         anchor="left"
         open={drawerOpen}
         onClose={toggleDrawer(false)}
+        ModalProps={{
+          keepMounted: true, // Better mobile performance
+        }}
         PaperProps={{
           sx: {
-            width: 280,
+            width: { xs: "85vw", sm: 320 },
+            maxWidth: 320,
             bgcolor: "#0F172A",
             color: "white",
-            borderRight: `2px solid ${ACCENT_COLOR}`,
-            backgroundImage: `radial-gradient(circle at top right, ${ACCENT_COLOR}10 0%, transparent 50%)`,
+            borderRight: `2px solid ${ACCENT_COLOR}40`,
+            boxShadow: `-4px 0 24px rgba(0, 0, 0, 0.5), 0 0 40px ${ACCENT_COLOR}20`,
+            background: `
+              linear-gradient(180deg, #0F172A 0%, #1E293B 100%),
+              radial-gradient(circle at top right, ${ACCENT_COLOR}10 0%, transparent 60%)
+            `,
           },
+        }}
+        SlideProps={{
+          timeout: 300,
         }}
       >
         {drawerList}
