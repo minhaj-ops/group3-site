@@ -19,6 +19,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ACCENT_COLOR, lucideIcons } from "../common/config";
+import Logo from "./logo";
 
 const { Home, Users, Briefcase, Cloud, Folder, MessageSquare, Mail, ArrowRight } = lucideIcons;
 
@@ -127,23 +128,12 @@ const Header = () => {
             mb: 2,
           }}
         >
-          <Typography
-            variant="h5"
-            component={Link}
-            to="/"
+          <Logo
+            variant="mobile"
+            size="medium"
+            showText={true}
             onClick={handleNavClick}
-            sx={{
-              fontFamily: "'Outfit', sans-serif",
-              fontWeight: 800,
-              letterSpacing: ".02rem",
-              background: `linear-gradient(135deg, ${ACCENT_COLOR} 0%, #ff8c69 100%)`,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textDecoration: "none",
-            }}
-          >
-            Group3 Co
-          </Typography>
+          />
           <motion.div
             whileHover={{ scale: 1.1, rotate: 90 }}
             whileTap={{ scale: 0.9 }}
@@ -422,48 +412,19 @@ const Header = () => {
           }}
         >
           {/* Logo */}
-          <MotionBox
-            component={Link}
-            to="/"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+          <Box
             sx={{
               mr: 4,
               display: { xs: "none", md: "flex" },
               alignItems: "center",
-              textDecoration: "none",
             }}
           >
-            <Typography
-              variant="h5"
-              noWrap
-              sx={{
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 700,
-                letterSpacing: ".02rem",
-                color: "white",
-                textDecoration: "none",
-                position: "relative",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: -2,
-                  left: 0,
-                  width: "0%",
-                  height: "2px",
-                  bgcolor: ACCENT_COLOR,
-                  transition: "width 0.3s ease",
-                },
-                "&:hover::after": {
-                  width: "100%",
-                },
-                "&:hover": { color: ACCENT_COLOR },
-              }}
-            >
-              Group3 Co
-            </Typography>
-          </MotionBox>
+            <Logo
+              variant="default"
+              size="medium"
+              showText={true}
+            />
+          </Box>
 
           {/* Desktop Navigation */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -537,23 +498,20 @@ const Header = () => {
               <MenuIcon />
             </IconButton>
 
-            <Typography
-              variant="h6"
-              noWrap
-              component={Link}
-              to="/"
+            <Box
               sx={{
                 flexGrow: 1,
-                textAlign: "center",
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 700,
-                letterSpacing: ".02rem",
-                color: "white",
-                textDecoration: "none",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              Group3 Co
-            </Typography>
+              <Logo
+                variant="mobile"
+                size="small"
+                showText={true}
+              />
+            </Box>
 
             <Box sx={{ width: 48 }} />
           </Box>

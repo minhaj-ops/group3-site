@@ -22,6 +22,7 @@ import {
   TEXT_SECONDARY,
   lucideIcons,
 } from "./config";
+import Logo from "./logo";
 
 const { Mail, Phone, MapPin, Github, Linkedin, Twitter, ArrowRight } = lucideIcons;
 
@@ -299,22 +300,22 @@ const Footer = () => {
         >
           {/* Brand Column */}
           <MotionBox variants={itemVariants}>
-            <MotionTypography
-              variant="h4"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+            <Box
               sx={{
                 mb: 2,
-                fontWeight: 800,
-                fontFamily: "'Outfit', sans-serif",
-                background: `linear-gradient(135deg, ${ACCENT_COLOR} 0%, #ff8c69 100%)`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
               }}
             >
-              {COMPANY_NAME}
-            </MotionTypography>
+              <Logo
+                variant="footer"
+                size="large"
+                showText={true}
+                sx={{
+                  "& .MuiBox-root": {
+                    justifyContent: "flex-start",
+                  },
+                }}
+              />
+            </Box>
             <Typography
               variant="body1"
               sx={{ 
