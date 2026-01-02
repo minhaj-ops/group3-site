@@ -344,7 +344,7 @@ const Footer = () => {
                 },
                 {
                   icon: MapPin,
-                  text: "123 Digital Blvd, Suite 400\nInnovation City, CA 90210",
+                  text: "8431 252ND ST\nBELLEROSE, NY 11426",
                 },
               ].map((item, index) => (
                 <motion.div

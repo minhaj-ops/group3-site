@@ -50,7 +50,7 @@ export const BACKGROUND_PAPER = "#1E293B";
 export const TEXT_PRIMARY = "#E0E7FF";
 export const TEXT_SECONDARY = "#A0B3D9";
 
-export const COMPANY_NAME = "Group3 Co";
+export const COMPANY_NAME = "THEGROUP3 INC";
 export const COMPANY_SLOGAN =
   "We engineer future-ready digital products with excellence and impact.";
 
