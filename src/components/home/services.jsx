@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import SectionHeader from "../common/section-header";
-import { ACCENT_COLOR, servicesData } from "../common/config";
+import { ACCENT_COLOR, customData } from "../common/config";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -113,13 +113,13 @@ const cardVariants = {
   },
 };
 
-const Services = () => (
+const Custom = () => (
   <Box
     component="section"
-    id="services"
+    id="custom"
     sx={{ py: { xs: 8, md: 12 }, bgcolor: "slate.900" }}
   >
-    <SectionHeader title="Our Core Offerings" subtitle="Services" />
+    <SectionHeader title="Our Core Offerings" subtitle="Custom" />
 
     <Box sx={{ maxWidth: "1280px", mx: "auto", px: 3, mt: 4 }}>
       <MotionBox
@@ -134,7 +134,7 @@ const Services = () => (
           justifyContent: "flex-start",
         }}
       >
-        {servicesData.map((service, index) => (
+        {customData.map((service, index) => (
           <MotionBox
             key={index}
             variants={cardVariants}
@@ -154,4 +154,4 @@ const Services = () => (
   </Box>
 );
 
-export default Services;
+export default Custom;

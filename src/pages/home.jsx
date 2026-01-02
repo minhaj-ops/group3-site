@@ -1,6 +1,6 @@
 import React from "react";
 import HeroSection from "../components/home/hero-section";
-import Services from "../components/home/services";
+import Custom from "../components/home/services";
 import Projects from "../components/home/projects";
 import About from "../components/home/about";
 import Testimonials from "../components/home/testimonials";
@@ -11,7 +11,7 @@ export default function Home({ handleNavClick }) {
     <>
       <HeroSection handleNavClick={handleNavClick} />
       <About />
-      <Services />
+      <Custom />
       <Projects />
       <Testimonials />
       <Contact />

@@ -205,7 +205,7 @@ const quickLinks = {
     { name: "Careers", href: "#" },
     { name: "Blog", href: "#" },
   ],
-  Services: [
+  Custom: [
     { name: "Product Strategy", href: "/services" },
     { name: "UI/UX Design", href: "/services" },
     { name: "Full-Stack Dev", href: "/services" },

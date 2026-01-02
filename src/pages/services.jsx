@@ -11,7 +11,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ACCENT_COLOR,
-  servicesData,
+  customData,
   processSteps,
   lucideIcons,
 } from "../components/common/config";
@@ -23,7 +23,7 @@ const MotionCard = motion(Card);
 const MotionTypography = motion(Typography);
 
 // Hero Section with floating elements
-const ServicesHero = () => {
+const CustomHero = () => {
   return (
     <Box
       sx={{
@@ -86,7 +86,7 @@ const ServicesHero = () => {
         >
           <Chip
             icon={<Zap size={16} />}
-            label="Our Services"
+            label="Our Custom"
             sx={{
               mb: 3,
               bgcolor: `${ACCENT_COLOR}20`,
@@ -156,7 +156,7 @@ const ServicesHero = () => {
               variant="contained"
               size="large"
               endIcon={<ArrowRight size={20} />}
-              href="#services-grid"
+              href="#custom-grid"
               sx={{
                 bgcolor: ACCENT_COLOR,
                 color: "#0F172A",
@@ -173,7 +173,7 @@ const ServicesHero = () => {
                 },
               }}
             >
-              Explore Our Services
+              Explore Our Custom
             </Button>
           </motion.div>
         </motion.div>
@@ -343,13 +343,13 @@ const ServiceCard = ({ service, index, isExpanded, onToggle }) => {
   );
 };
 
-// Services Grid Section
-const ServicesGrid = () => {
+// Custom Grid Section
+const CustomGrid = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   return (
     <Box
-      id="services-grid"
+      id="custom-grid"
       sx={{
         py: { xs: 8, md: 12 },
         bgcolor: "#0F172A",
@@ -388,7 +388,7 @@ const ServicesGrid = () => {
           </Typography>
         </MotionBox>
 
-        {/* Services Grid */}
+        {/* Custom Grid */}
         <Box
           sx={{
             display: "grid",
@@ -400,7 +400,7 @@ const ServicesGrid = () => {
             gap: 4,
           }}
         >
-          {servicesData.map((service, index) => (
+          {customData.map((service, index) => (
             <ServiceCard
               key={index}
               service={service}
@@ -679,12 +679,12 @@ const CTASection = () => {
   );
 };
 
-// Main Services Page
+// Main Custom Page
 const Services = () => {
   return (
     <>
-      <ServicesHero />
-      <ServicesGrid />
+      <CustomHero />
+      <CustomGrid />
       <ProcessSection />
       <CTASection />
     </>

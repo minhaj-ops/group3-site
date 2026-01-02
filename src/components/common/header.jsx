@@ -28,7 +28,7 @@ const MotionBox = motion(Box);
 const navLinks = [
   { name: "Home", href: "/", icon: Home },
   { name: "About", href: "/about", icon: Users },
-  { name: "Services", href: "/services", icon: Briefcase },
+  { name: "Custom", href: "/services", icon: Briefcase },
   { name: "Microsoft Solutions", href: "/microsoft-solutions", icon: Cloud },
   { name: "Projects", href: "/projects", icon: Folder },
   { name: "Testimonials", href: "/testimonials", icon: MessageSquare },

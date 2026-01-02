@@ -532,7 +532,7 @@ const SolutionsGrid = () => {
               fontFamily: "'Outfit', sans-serif",
             }}
           >
-            Comprehensive Cloud Services
+            Comprehensive Cloud Custom
           </Typography>
         </MotionBox>
 
@@ -835,7 +835,7 @@ const CTASection = () => {
                   },
                 }}
               >
-                View All Services
+                View All Custom
               </Button>
             </motion.div>
           </Box>

@@ -54,8 +54,8 @@ export const COMPANY_NAME = "Group3 Co";
 export const COMPANY_SLOGAN =
   "We engineer future-ready digital products with excellence and impact.";
 
-// Enhanced services data with more details
-export const servicesData = [
+// Enhanced custom data with more details
+export const customData = [
   {
     title: "Product Strategy",
     icon: LayoutDashboard,
@@ -309,14 +309,14 @@ export const lucideIcons = {
 export const navItems = [
   "Home",
   "About",
-  "Services",
+  "Custom",
   "Projects",
   "Testimonials",
   "Contact",
 ];
 
 export const quickLinks = {
-  Services: [
+  Custom: [
     { name: "Product Strategy", href: "/services#strategy" },
     { name: "UI/UX Design", href: "/services#design" },
     { name: "Full-Stack Dev", href: "/services#development" },

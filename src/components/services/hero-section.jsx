@@ -6,7 +6,7 @@ import { ACCENT_COLOR } from "../common/config";
 const BACKGROUND_IMAGE_URL =
   "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80";
 
-const FLOATING_LETTERS = "SERVICES DESIGN DEV STRATEGY SOLUTIONS";
+const FLOATING_LETTERS = "CUSTOM DESIGN DEV STRATEGY SOLUTIONS";
 
 const generateLetterPositions = (text) => {
   return text.split("").map((letter, index) => ({
@@ -155,7 +155,7 @@ const ServicesHeroSection = ({ onNavClick = () => {} }) => {
               mb: 2,
             }}
           >
-            Our Services
+            Our Custom
           </Typography>
 
           <Typography
@@ -195,7 +195,7 @@ const ServicesHeroSection = ({ onNavClick = () => {} }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Explore Services
+            Explore Custom
           </MotionButton> */}
         </motion.div>
       </Container>
