@@ -551,7 +551,7 @@ const Footer = () => {
               reserved.
             </Typography>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
@@ -580,7 +580,7 @@ const Footer = () => {
                 Minhaj Alvi
               </Box>
             </Typography>
-          </motion.div>
+          </motion.div> */}
         </Box>
       </Container>
     </Box>
