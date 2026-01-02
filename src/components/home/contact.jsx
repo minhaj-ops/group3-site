@@ -140,7 +140,7 @@ const Contact = () => {
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <Briefcase size={24} color={ACCENT_COLOR} />
                     <Typography color="text.secondary">
-                      New York, London, Remote
+                      8431 252ND ST, BELLEROSE, NY 11426
                     </Typography>
                   </Stack>
                   <Stack direction="row" alignItems="center" spacing={2}>
