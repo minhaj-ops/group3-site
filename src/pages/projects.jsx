@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Box,
   Container,
@@ -9,12 +9,27 @@ import {
   Button,
   Chip,
   IconButton,
+  Avatar,
+  Rating,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ACCENT_COLOR, projectsData, lucideIcons } from "../components/common/config";
+import {
+  ACCENT_COLOR,
+  projectsData,
+  testimonialsData,
+  lucideIcons,
+} from "../components/common/config";
 
-const { ExternalLink, ArrowRight, Zap, Star } = lucideIcons;
+const {
+  ExternalLink,
+  ArrowRight,
+  Zap,
+  Star,
+  Quote,
+  ChevronLeft,
+  ChevronRight,
+} = lucideIcons;
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -55,7 +70,12 @@ const ProjectsHero = () => {
       {[...Array(5)].map((_, i) => (
         <MotionBox
           key={i}
-          initial={{ opacity: 0, y: 100, rotateX: 45, rotateY: i % 2 === 0 ? -15 : 15 }}
+          initial={{
+            opacity: 0,
+            y: 100,
+            rotateX: 45,
+            rotateY: i % 2 === 0 ? -15 : 15,
+          }}
           animate={{
             opacity: 0.2 + i * 0.1,
             y: [0, -20, 0],
@@ -83,7 +103,10 @@ const ProjectsHero = () => {
         />
       ))}
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}>
+      <Container
+        maxWidth="lg"
+        sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -278,7 +301,9 @@ const ProjectCard = ({ project, index }) => {
       </Box>
 
       {/* Content */}
-      <CardContent sx={{ p: 4, flexGrow: 1, display: "flex", flexDirection: "column" }}>
+      <CardContent
+        sx={{ p: 4, flexGrow: 1, display: "flex", flexDirection: "column" }}
+      >
         <Typography
           variant="h5"
           sx={{
@@ -372,7 +397,10 @@ const ProjectsGrid = () => {
         bgcolor: "#0F172A",
       }}
     >
-      <Container maxWidth="lg" sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}>
+      <Container
+        maxWidth="lg"
+        sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}
+      >
         {/* Category Filter */}
         <MotionBox
           initial={{ opacity: 0, y: 20 }}
@@ -403,8 +431,7 @@ const ProjectsGrid = () => {
                   textTransform: "none",
                   bgcolor:
                     activeCategory === category ? ACCENT_COLOR : "transparent",
-                  color:
-                    activeCategory === category ? "#0F172A" : "#A0B3D9",
+                  color: activeCategory === category ? "#0F172A" : "#A0B3D9",
                   border: `2px solid ${
                     activeCategory === category ? ACCENT_COLOR : "#334155"
                   }`,
@@ -445,7 +472,11 @@ const ProjectsGrid = () => {
               }}
             >
               {filteredProjects.map((project, index) => (
-                <ProjectCard key={project.name} project={project} index={index} />
+                <ProjectCard
+                  key={project.name}
+                  project={project}
+                  index={index}
+                />
               ))}
             </Box>
           </motion.div>
@@ -552,7 +583,10 @@ const CTASection = () => {
         }}
       />
 
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+      <Container
+        maxWidth="md"
+        sx={{ position: "relative", zIndex: 1, textAlign: "center" }}
+      >
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -596,7 +630,14 @@ const CTASection = () => {
             Let's collaborate and create something extraordinary together.
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="contained"
@@ -626,6 +667,248 @@ const CTASection = () => {
   );
 };
 
+// Featured Testimonials Section
+const FeaturedTestimonials = () => {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const nextTestimonial = useCallback(() => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % testimonialsData.length);
+  }, []);
+
+  const prevTestimonial = useCallback(() => {
+    setDirection(-1);
+    setCurrent(
+      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length
+    );
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(nextTestimonial, 7000);
+    return () => clearInterval(timer);
+  }, [nextTestimonial]);
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      scale: 0.9,
+      transition: { duration: 0.5, ease: "easeIn" },
+    }),
+  };
+
+  const testimonial = testimonialsData[current];
+
+  return (
+    <Box
+      sx={{
+        py: { xs: 8, md: 12 },
+        bgcolor: "#0F172A",
+        position: "relative",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            position: "relative",
+            maxWidth: "900px",
+            mx: "auto",
+          }}
+        >
+          <AnimatePresence mode="wait" custom={direction}>
+            <MotionCard
+              key={current}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              sx={{
+                bgcolor: "#1E293B",
+                borderRadius: "32px",
+                overflow: "visible",
+                border: `1px solid ${ACCENT_COLOR}30`,
+                position: "relative",
+                boxShadow: `0 30px 60px -20px ${ACCENT_COLOR}20`,
+              }}
+            >
+              {/* Decorative quote */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: -30,
+                  left: 50,
+                  color: ACCENT_COLOR,
+                  opacity: 0.5,
+                }}
+              >
+                <Quote size={80} strokeWidth={1} />
+              </Box>
+
+              <CardContent sx={{ p: { xs: 4, md: 8 }, pt: { xs: 6, md: 10 } }}>
+                {/* Rating */}
+                <Box sx={{ mb: 4 }}>
+                  <Rating
+                    value={testimonial.rating}
+                    readOnly
+                    sx={{
+                      "& .MuiRating-iconFilled": { color: ACCENT_COLOR },
+                      "& .MuiRating-iconEmpty": { color: "#334155" },
+                    }}
+                  />
+                </Box>
+
+                {/* Quote */}
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontStyle: "italic",
+                    color: "white",
+                    fontWeight: 400,
+                    lineHeight: 1.6,
+                    mb: 5,
+                    fontSize: { xs: "1.3rem", md: "1.8rem" },
+                  }}
+                >
+                  "{testimonial.quote}"
+                </Typography>
+
+                {/* Author Info */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 3,
+                    pt: 4,
+                    borderTop: "1px solid #334155",
+                  }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Avatar
+                      src={testimonial.avatar}
+                      alt={testimonial.author}
+                      sx={{
+                        width: 80,
+                        height: 80,
+                        border: `3px solid ${ACCENT_COLOR}`,
+                        boxShadow: `0 0 20px ${ACCENT_COLOR}40`,
+                      }}
+                    />
+                  </motion.div>
+                  <Box>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "white", fontWeight: 700, mb: 0.5 }}
+                    >
+                      {testimonial.author}
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: ACCENT_COLOR }}>
+                      {testimonial.title}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: "#A0B3D9", mt: 0.5 }}
+                    >
+                      {testimonial.company}
+                    </Typography>
+                  </Box>
+                </Box>
+              </CardContent>
+            </MotionCard>
+          </AnimatePresence>
+
+          {/* Navigation */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 3,
+              mt: 5,
+            }}
+          >
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconButton
+                onClick={prevTestimonial}
+                sx={{
+                  bgcolor: "#1E293B",
+                  color: "white",
+                  border: `2px solid ${ACCENT_COLOR}`,
+                  p: 1.5,
+                  "&:hover": {
+                    bgcolor: ACCENT_COLOR,
+                    color: "#0F172A",
+                  },
+                }}
+              >
+                <ChevronLeft size={24} />
+              </IconButton>
+            </motion.div>
+
+            {/* Dots */}
+            <Box sx={{ display: "flex", gap: 1.5 }}>
+              {testimonialsData.map((_, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.3 }}
+                  onClick={() => {
+                    setDirection(index > current ? 1 : -1);
+                    setCurrent(index);
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
+                  <Box
+                    sx={{
+                      width: index === current ? 30 : 10,
+                      height: 10,
+                      borderRadius: "5px",
+                      bgcolor: index === current ? ACCENT_COLOR : "#334155",
+                      transition: "all 0.3s",
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </Box>
+
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconButton
+                onClick={nextTestimonial}
+                sx={{
+                  bgcolor: "#1E293B",
+                  color: "white",
+                  border: `2px solid ${ACCENT_COLOR}`,
+                  p: 1.5,
+                  "&:hover": {
+                    bgcolor: ACCENT_COLOR,
+                    color: "#0F172A",
+                  },
+                }}
+              >
+                <ChevronRight size={24} />
+              </IconButton>
+            </motion.div>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
 // Main Projects Page
 const Projects = () => {
   return (
@@ -634,13 +917,9 @@ const Projects = () => {
       <ProjectsGrid />
       <StatsSection />
       <CTASection />
+      <FeaturedTestimonials />
     </>
   );
 };
 
 export default Projects;
-
-
-
-
-

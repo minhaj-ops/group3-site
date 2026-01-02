@@ -89,7 +89,10 @@ const ContactHero = () => {
         }}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}>
+      <Container
+        maxWidth="lg"
+        sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -243,7 +246,11 @@ const ContactForm = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [snackbar, setSnackbar] = useState({ open: false, message: "", severity: "success" });
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   const handleChange = (e) => {
     setFormData({
@@ -262,7 +269,8 @@ const ContactForm = () => {
     setIsSubmitting(false);
     setSnackbar({
       open: true,
-      message: "Thanks for reaching out! We'll get back to you within 24 hours.",
+      message:
+        "Thanks for reaching out! We'll get back to you within 24 hours.",
       severity: "success",
     });
     setFormData({
@@ -578,7 +586,10 @@ const ContactSection = () => {
         bgcolor: "#0F172A",
       }}
     >
-      <Container maxWidth="lg" sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}>
+      <Container
+        maxWidth="lg"
+        sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}
+      >
         <Box
           sx={{
             display: "grid",
@@ -621,13 +632,15 @@ const ContactSection = () => {
                 variant="body1"
                 sx={{ color: "#A0B3D9", mb: 5, maxWidth: "400px" }}
               >
-                Have questions? Our team is ready to assist you. Reach out through
-                any of the channels below.
+                Have questions? Our team is ready to assist you. Reach out
+                through any of the channels below.
               </Typography>
             </MotionBox>
 
             {/* Contact Info Cards */}
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 5 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 5 }}
+            >
               {contactInfo.map((info, index) => (
                 <motion.div
                   key={index}
@@ -690,146 +703,6 @@ const ContactSection = () => {
   );
 };
 
-// FAQ Section
-const FAQSection = () => {
-  const faqs = [
-    {
-      q: "How long does a typical project take?",
-      a: "Project timelines vary based on scope. A simple website takes 4-6 weeks, while complex applications may take 3-6 months.",
-    },
-    {
-      q: "What's your development process?",
-      a: "We follow an agile methodology with regular sprints, demos, and feedback loops to ensure alignment throughout.",
-    },
-    {
-      q: "Do you offer ongoing support?",
-      a: "Yes! We provide various support packages including maintenance, updates, and 24/7 monitoring options.",
-    },
-    {
-      q: "What industries do you work with?",
-      a: "We've worked across FinTech, HealthTech, EdTech, Real Estate, E-commerce, and many more sectors.",
-    },
-  ];
-
-  const [expanded, setExpanded] = useState(null);
-
-  return (
-    <Box
-      sx={{
-        py: { xs: 8, md: 12 },
-        bgcolor: "#1E293B",
-      }}
-    >
-      <Container maxWidth="md">
-        <MotionBox
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          sx={{ textAlign: "center", mb: 8 }}
-        >
-          <Typography
-            variant="subtitle1"
-            sx={{
-              color: ACCENT_COLOR,
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              mb: 2,
-            }}
-          >
-            FAQ
-          </Typography>
-          <Typography
-            variant="h3"
-            sx={{
-              color: "white",
-              fontWeight: 800,
-              fontSize: { xs: "2rem", md: "2.5rem" },
-            }}
-          >
-            Common Questions
-          </Typography>
-        </MotionBox>
-
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {faqs.map((faq, index) => (
-            <MotionBox
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              onClick={() => setExpanded(expanded === index ? null : index)}
-              sx={{
-                p: 3,
-                bgcolor: "#0F172A",
-                borderRadius: "16px",
-                cursor: "pointer",
-                border: `1px solid ${expanded === index ? ACCENT_COLOR : "#334155"}`,
-                transition: "all 0.3s",
-                "&:hover": {
-                  borderColor: ACCENT_COLOR,
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  sx={{ color: "white", fontWeight: 600, pr: 2 }}
-                >
-                  {faq.q}
-                </Typography>
-                <motion.div
-                  animate={{ rotate: expanded === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Box
-                    sx={{
-                      width: 30,
-                      height: 30,
-                      borderRadius: "50%",
-                      bgcolor: `${ACCENT_COLOR}20`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: ACCENT_COLOR,
-                      flexShrink: 0,
-                    }}
-                  >
-                    +
-                  </Box>
-                </motion.div>
-              </Box>
-              {expanded === index && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Typography
-                    variant="body1"
-                    sx={{ color: "#A0B3D9", mt: 2, lineHeight: 1.7 }}
-                  >
-                    {faq.a}
-                  </Typography>
-                </motion.div>
-              )}
-            </MotionBox>
-          ))}
-        </Box>
-      </Container>
-    </Box>
-  );
-};
-
 // Map Section (Placeholder)
 const MapSection = () => {
   return (
@@ -873,11 +746,15 @@ const MapSection = () => {
           }}
         >
           <Globe size={60} color={ACCENT_COLOR} style={{ marginBottom: 20 }} />
-          <Typography variant="h5" sx={{ color: "white", fontWeight: 700, mb: 1 }}>
+          <Typography
+            variant="h5"
+            sx={{ color: "white", fontWeight: 700, mb: 1 }}
+          >
             We Work Globally
           </Typography>
           <Typography variant="body1" sx={{ color: "#A0B3D9", maxWidth: 400 }}>
-            With team members across multiple time zones, we're available when you need us.
+            With team members across multiple time zones, we're available when
+            you need us.
           </Typography>
         </MotionBox>
       </Box>
@@ -891,15 +768,9 @@ const Contact = () => {
     <>
       <ContactHero />
       <ContactSection />
-      <FAQSection />
       <MapSection />
     </>
   );
 };
 
 export default Contact;
-
-
-
-
-

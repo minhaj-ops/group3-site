@@ -24,7 +24,8 @@ import {
 } from "./config";
 import Logo from "./logo";
 
-const { Mail, Phone, MapPin, Github, Linkedin, Twitter, ArrowRight } = lucideIcons;
+const { Mail, Phone, MapPin, Github, Linkedin, Twitter, ArrowRight } =
+  lucideIcons;
 
 const MotionBox = motion(Box);
 const MotionTypography = motion(Typography);
@@ -98,25 +99,26 @@ const NewsletterSubscription = () => {
     >
       <Typography
         variant="h6"
-        sx={{ 
-          mb: 1, 
-          fontWeight: 700, 
+        sx={{
+          mb: 1,
+          fontWeight: 700,
           color: TEXT_PRIMARY,
           fontFamily: "'DM Sans', sans-serif",
         }}
       >
         Stay in the Loop
       </Typography>
-      <Typography 
-        variant="body2" 
-        sx={{ 
-          mb: 3, 
+      <Typography
+        variant="body2"
+        sx={{
+          mb: 3,
           color: TEXT_SECONDARY,
           fontFamily: "'DM Sans', sans-serif",
           lineHeight: 1.6,
         }}
       >
-        Get exclusive insights, updates, and industry trends delivered to your inbox.
+        Get exclusive insights, updates, and industry trends delivered to your
+        inbox.
       </Typography>
       <Box
         sx={{
@@ -207,12 +209,10 @@ const quickLinks = {
     { name: "Product Strategy", href: "/services" },
     { name: "UI/UX Design", href: "/services" },
     { name: "Full-Stack Dev", href: "/services" },
-    { name: "Microsoft Solutions", href: "/microsoft-solutions" },
+    { name: "Microsoft", href: "/microsoft-solutions" },
   ],
   Resources: [
     { name: "Case Studies", href: "/projects" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "FAQ", href: "#" },
     { name: "Privacy Policy", href: "#" },
   ],
 };
@@ -318,10 +318,10 @@ const Footer = () => {
             </Box>
             <Typography
               variant="body1"
-              sx={{ 
-                mb: 4, 
-                color: TEXT_SECONDARY, 
-                lineHeight: 1.8, 
+              sx={{
+                mb: 4,
+                color: TEXT_SECONDARY,
+                lineHeight: 1.8,
                 maxWidth: "280px",
                 fontFamily: "'DM Sans', sans-serif",
               }}
@@ -332,9 +332,20 @@ const Footer = () => {
             {/* Contact Info */}
             <Box sx={{ mb: 4 }}>
               {[
-                { icon: Mail, text: "hello@group3co.com", href: "mailto:hello@group3co.com" },
-                { icon: Phone, text: "(123) 456-7890", href: "tel:+1234567890" },
-                { icon: MapPin, text: "123 Digital Blvd, Suite 400\nInnovation City, CA 90210" },
+                {
+                  icon: Mail,
+                  text: "hello@group3co.com",
+                  href: "mailto:hello@group3co.com",
+                },
+                {
+                  icon: Phone,
+                  text: "(123) 456-7890",
+                  href: "tel:+1234567890",
+                },
+                {
+                  icon: MapPin,
+                  text: "123 Digital Blvd, Suite 400\nInnovation City, CA 90210",
+                },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -345,7 +356,9 @@ const Footer = () => {
                   <Box
                     sx={{
                       display: "flex",
-                      alignItems: item.text.includes("\n") ? "flex-start" : "center",
+                      alignItems: item.text.includes("\n")
+                        ? "flex-start"
+                        : "center",
                       mb: 2,
                       transition: "transform 0.2s",
                       "&:hover": { transform: "translateX(5px)" },
@@ -528,8 +541,13 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Typography variant="body2" color={TEXT_SECONDARY} sx={{ fontFamily: "'DM Sans', sans-serif" }}>
-              &copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
+            <Typography
+              variant="body2"
+              color={TEXT_SECONDARY}
+              sx={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              &copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights
+              reserved.
             </Typography>
           </motion.div>
           <motion.div
@@ -537,7 +555,11 @@ const Footer = () => {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            <Typography variant="body2" color={TEXT_SECONDARY} sx={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <Typography
+              variant="body2"
+              color={TEXT_SECONDARY}
+              sx={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
               Crafted with{" "}
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
