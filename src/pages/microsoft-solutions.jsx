@@ -11,10 +11,7 @@ import {
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  ACCENT_COLOR,
-  lucideIcons,
-} from "../components/common/config";
+import { ACCENT_COLOR, lucideIcons } from "../components/common/config";
 
 const {
   Cloud,
@@ -181,7 +178,10 @@ const MicrosoftSolutionsHero = () => {
         />
       ))}
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}>
+      <Container
+        maxWidth="lg"
+        sx={{ position: "relative", zIndex: 2, textAlign: "center", py: 8 }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -245,9 +245,10 @@ const MicrosoftSolutionsHero = () => {
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
-            Transform your business with Microsoft's cutting-edge cloud technologies.
-            From Azure infrastructure to Power Platform automation, we deliver
-            enterprise-grade solutions that drive innovation.
+            Transform your business with Microsoft's cutting-edge cloud
+            technologies. From Azure infrastructure to Power Platform
+            automation, we deliver enterprise-grade solutions that drive
+            innovation.
           </MotionTypography>
 
           <motion.div
@@ -321,6 +322,12 @@ const SolutionCard = ({ solution, index, isExpanded, onToggle }) => {
         border: `1px solid ${isExpanded ? solution.color : "#334155"}`,
         transition: "border-color 0.3s",
         height: "100%",
+        width: "100%",
+        maxWidth: "100%",
+        minWidth: 0,
+        display: "flex",
+        flexDirection: "column",
+        flex: "1 1 auto",
         "&::before": {
           content: '""',
           position: "absolute",
@@ -334,7 +341,17 @@ const SolutionCard = ({ solution, index, isExpanded, onToggle }) => {
         },
       }}
     >
-      <CardContent sx={{ p: 4 }}>
+      <CardContent
+        sx={{
+          p: 4,
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          minWidth: 0,
+          boxSizing: "border-box",
+        }}
+      >
         {/* Icon */}
         <MotionBox
           initial={{ scale: 1 }}
@@ -481,7 +498,10 @@ const SolutionsGrid = () => {
         bgcolor: "#0F172A",
       }}
     >
-      <Container maxWidth="lg" sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}>
+      <Container
+        maxWidth="lg"
+        sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}
+      >
         {/* Section Header */}
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
@@ -517,9 +537,26 @@ const SolutionsGrid = () => {
         </MotionBox>
 
         {/* Solutions Grid */}
-        <Grid container spacing={4}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
+            },
+            gap: 4,
+          }}
+        >
           {microsoftSolutions.map((solution, index) => (
-            <Grid item xs={12} sm={6} lg={4} key={index}>
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                width: "100%",
+                minHeight: "100%",
+              }}
+            >
               <SolutionCard
                 solution={solution}
                 index={index}
@@ -528,9 +565,9 @@ const SolutionsGrid = () => {
                   setExpandedIndex(expandedIndex === index ? null : index)
                 }
               />
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
@@ -617,9 +654,24 @@ const WhyMicrosoftSection = () => {
           </Typography>
         </MotionBox>
 
-        <Grid container spacing={4}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+            },
+            gap: 4,
+          }}
+        >
           {benefits.map((benefit, index) => (
-            <Grid item xs={12} sm={6} key={index}>
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                width: "100%",
+              }}
+            >
               <MotionBox
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -632,6 +684,9 @@ const WhyMicrosoftSection = () => {
                   borderRadius: "20px",
                   border: "1px solid #334155",
                   height: "100%",
+                  width: "100%",
+                  maxWidth: "100%",
+                  minWidth: 0,
                   transition: "all 0.3s",
                   "&:hover": {
                     borderColor: ACCENT_COLOR,
@@ -661,9 +716,9 @@ const WhyMicrosoftSection = () => {
                   {benefit.description}
                 </Typography>
               </MotionBox>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );
@@ -691,7 +746,10 @@ const CTASection = () => {
         }}
       />
 
-      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+      <Container
+        maxWidth="md"
+        sx={{ position: "relative", zIndex: 1, textAlign: "center" }}
+      >
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -720,10 +778,18 @@ const CTASection = () => {
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
-            Let's discuss how Microsoft solutions can accelerate your digital transformation.
+            Let's discuss how Microsoft solutions can accelerate your digital
+            transformation.
           </Typography>
 
-          <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: 3,
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 variant="contained"
@@ -792,4 +858,3 @@ const MicrosoftSolutions = () => {
 };
 
 export default MicrosoftSolutions;
-
