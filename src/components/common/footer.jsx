@@ -213,7 +213,8 @@ const quickLinks = {
   ],
   Resources: [
     { name: "Case Studies", href: "/projects" },
-    { name: "Privacy Policy", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms and Conditions", href: "/terms-and-conditions" },
   ],
 };
 

@@ -10,6 +10,8 @@ import MicrosoftSolutions from "./pages/microsoft-solutions";
 import Projects from "./pages/projects";
 import Testimonials from "./pages/testimonials";
 import Contact from "./pages/contact";
+import PrivacyPolicy from "./pages/privacy-policy";
+import TermsAndConditions from "./pages/terms-and-conditions";
 
 import { ACCENT_COLOR } from "./components/common/config";
 import Layout from "./components/layout";
@@ -134,6 +136,8 @@ export default function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="testimonials" element={<Testimonials />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms-and-conditions" element={<TermsAndConditions />} />
           </Route>
         </Routes>
       </BrowserRouter>
