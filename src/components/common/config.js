@@ -184,7 +184,7 @@ export const projectsData = [
     description:
       "HIPAA-compliant patient management system with telehealth integration and real-time analytics.",
     imageUrl:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "Node.js", "PostgreSQL", "WebRTC"],
     stats: { clinics: "500+", patients: "2M+", compliance: "100%" },
     link: "#",

@@ -5,7 +5,6 @@ import {
   Typography,
   Card,
   CardContent,
-  CardMedia,
   Button,
   Chip,
   IconButton,
@@ -220,15 +219,17 @@ const ProjectCard = ({ project, index }) => {
     >
       {/* Image Container */}
       <Box sx={{ position: "relative", overflow: "hidden" }}>
-        <CardMedia
+        <Box
           component={motion.img}
           animate={{ scale: isHovered ? 1.1 : 1 }}
           transition={{ duration: 0.5 }}
-          image={project.imageUrl}
-          alt={project.name}
+          src={project.imageUrl}
+          alt={`${project.name} - ${project.category}`}
           sx={{
             height: 260,
+            width: "100%",
             objectFit: "cover",
+            display: "block",
           }}
         />
 
