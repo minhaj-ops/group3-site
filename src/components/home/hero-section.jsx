@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Button, Container } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ACCENT_COLOR,
   BACKGROUND_IMAGE_URL,
@@ -185,9 +186,10 @@ const HeroSection = ({ onNavClick }) => {
           </MotionTypography>
 
           <MotionButton
+            component={Link}
+            to="/projects"
             variant="contained"
             size="large"
-            onClick={() => onNavClick("projects")}
             sx={{
               bgcolor: ACCENT_COLOR,
               color: "#0F172A",
@@ -197,6 +199,7 @@ const HeroSection = ({ onNavClick }) => {
               fontSize: "1.125rem",
               textTransform: "none",
               boxShadow: `0 8px 15px 5px ${ACCENT_COLOR}40`,
+              textDecoration: "none",
             }}
             whileHover={{ scale: 1.04, boxShadow: `0 14px 30px -6px ${ACCENT_COLOR}60` }}
             whileTap={{ scale: 0.98 }}

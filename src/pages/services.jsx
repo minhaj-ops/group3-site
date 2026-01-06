@@ -9,6 +9,7 @@ import {
   Chip,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ACCENT_COLOR,
   customData,
@@ -630,9 +631,10 @@ const CTASection = () => {
           <Box sx={{ display: "flex", gap: 3, justifyContent: "center", flexWrap: "wrap" }}>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
+                component={Link}
+                to="/contact"
                 variant="contained"
                 size="large"
-                href="/contact"
                 sx={{
                   bgcolor: ACCENT_COLOR,
                   color: "#0F172A",
@@ -643,6 +645,7 @@ const CTASection = () => {
                   borderRadius: "50px",
                   textTransform: "none",
                   boxShadow: `0 8px 30px ${ACCENT_COLOR}50`,
+                  textDecoration: "none",
                 }}
               >
                 Get Started
@@ -650,9 +653,10 @@ const CTASection = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
+                component={Link}
+                to="/projects"
                 variant="outlined"
                 size="large"
-                href="/projects"
                 sx={{
                   borderColor: ACCENT_COLOR,
                   color: ACCENT_COLOR,
@@ -662,6 +666,7 @@ const CTASection = () => {
                   fontWeight: 700,
                   borderRadius: "50px",
                   textTransform: "none",
+                  textDecoration: "none",
                   borderWidth: 2,
                   "&:hover": {
                     borderWidth: 2,

@@ -83,8 +83,8 @@ const PrivacyPolicy = () => {
       content: [
         `If you have any questions about this Privacy Policy, please contact us at:`,
         `${COMPANY_NAME}`,
-        `8431 252ND ST, BELLEROSE, NY 11426`,
-        `Email: hello@group3co.com`,
+        `8431 252ND ST\nBELLEROSE, NY 11426`,
+        `Email: info@GROUP3.IO`,
       ],
     },
   ];

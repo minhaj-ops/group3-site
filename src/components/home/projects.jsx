@@ -8,6 +8,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import SectionHeader from "../common/section-header";
 import { ACCENT_COLOR, projectsData } from "../common/config";
 
@@ -73,6 +74,8 @@ const ProjectCard = ({ name, category, description, imageUrl }) => (
         }}
       >
         <Button
+          component={Link}
+          to="/projects"
           variant="outlined"
           sx={{
             borderColor: ACCENT_COLOR,
@@ -82,6 +85,7 @@ const ProjectCard = ({ name, category, description, imageUrl }) => (
             py: 1,
             px: 3,
             textTransform: "none",
+            textDecoration: "none",
             "&:hover": {
               bgcolor: ACCENT_COLOR,
               color: "#0F172A",
@@ -162,6 +166,8 @@ const Projects = () => (
           transition={{ duration: 0.3 }}
         >
           <Button
+            component={Link}
+            to="/projects"
             variant="outlined"
             sx={{
               borderColor: ACCENT_COLOR,
@@ -172,6 +178,7 @@ const Projects = () => (
               px: 4,
               textTransform: "none",
               fontSize: "1rem",
+              textDecoration: "none",
               "&:hover": {
                 bgcolor: ACCENT_COLOR + "1A",
                 borderColor: ACCENT_COLOR,

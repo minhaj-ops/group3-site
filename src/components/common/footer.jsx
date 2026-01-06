@@ -201,16 +201,11 @@ const NewsletterSubscription = () => {
 const quickLinks = {
   Company: [
     { name: "About Us", href: "/about" },
-    { name: "Our Team", href: "/about#team" },
-    { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
+    // { name: "Our Team", href: "/about#team" },
+    { name: "Careers", href: "/careers" },
+    { name: "Blog", href: "/blog" },
   ],
-  Custom: [
-    { name: "Product Strategy", href: "/services" },
-    { name: "UI/UX Design", href: "/services" },
-    { name: "Full-Stack Dev", href: "/services" },
-    { name: "Microsoft", href: "/microsoft-solutions" },
-  ],
+  Custom: [{ name: "Microsoft", href: "/microsoft-solutions" }],
   Resources: [
     { name: "Case Studies", href: "/projects" },
     { name: "Privacy Policy", href: "/privacy-policy" },
@@ -335,13 +330,13 @@ const Footer = () => {
               {[
                 {
                   icon: Mail,
-                  text: "hello@group3co.com",
-                  href: "mailto:hello@group3co.com",
+                  text: "info@GROUP3.IO",
+                  href: "mailto:info@GROUP3.IO",
                 },
                 {
                   icon: Phone,
-                  text: "(123) 456-7890",
-                  href: "tel:+1234567890",
+                  text: "934 333 5303",
+                  href: "tel:+19343335303",
                 },
                 {
                   icon: MapPin,

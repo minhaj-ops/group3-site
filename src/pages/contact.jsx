@@ -552,19 +552,19 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "hello@group3co.com",
-      link: "mailto:hello@group3co.com",
+      content: "info@GROUP3.IO",
+      link: "mailto:info@GROUP3.IO",
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "(123) 456-7890",
-      link: "tel:+1234567890",
+      content: "934 333 5303",
+      link: "tel:+19343335303",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "123 Digital Blvd, Suite 400, Innovation City, CA 90210",
+      content: "8431 252ND ST\nBELLEROSE, NY 11426",
     },
     {
       icon: Clock,

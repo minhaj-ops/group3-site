@@ -12,6 +12,8 @@ import Testimonials from "./pages/testimonials";
 import Contact from "./pages/contact";
 import PrivacyPolicy from "./pages/privacy-policy";
 import TermsAndConditions from "./pages/terms-and-conditions";
+import Careers from "./pages/careers";
+import Blog from "./pages/blog";
 
 import { ACCENT_COLOR } from "./components/common/config";
 import Layout from "./components/layout";
@@ -138,6 +140,8 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
             <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="careers" element={<Careers />} />
+            <Route path="blog" element={<Blog />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -130,17 +130,17 @@ const Contact = () => {
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <Mail size={24} color={ACCENT_COLOR} />
                     <Link
-                      href="mailto:hello@group3co.com"
+                      href="mailto:info@GROUP3.IO"
                       color="text.secondary"
                       sx={{ "&:hover": { color: "white" } }}
                     >
-                      hello@group3co.com
+                      info@GROUP3.IO
                     </Link>
                   </Stack>
                   <Stack direction="row" alignItems="center" spacing={2}>
                     <Briefcase size={24} color={ACCENT_COLOR} />
                     <Typography color="text.secondary">
-                      8431 252ND ST, BELLEROSE, NY 11426
+                      8431 252ND ST\nBELLEROSE, NY 11426
                     </Typography>
                   </Stack>
                   <Stack direction="row" alignItems="center" spacing={2}>

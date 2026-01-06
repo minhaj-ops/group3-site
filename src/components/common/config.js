@@ -39,6 +39,8 @@ import {
   Folder,
   House,
   FileText,
+  Calendar,
+  User,
 } from "lucide-react";
 
 export const ACCENT_COLOR = "#FF6347";
@@ -318,6 +320,8 @@ export const lucideIcons = {
   Folder,
   Home: House,
   FileText,
+  Calendar,
+  User,
 };
 
 export const navItems = [
@@ -344,8 +348,10 @@ export const quickLinks = {
   Resources: [
     { name: "Support", href: "#" },
     { name: "FAQ", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-and-conditions" },
+    { name: "Careers", href: "/careers" },
+    { name: "Blog", href: "/blog" },
   ],
 };
 
