@@ -12,6 +12,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Apollo Tracking Script -->
+    <script>
+      function initApollo(){
+        var n=Math.random().toString(36).substring(7),
+        o=document.createElement("script");
+        o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,
+        o.async=!0,
+        o.defer=!0,
+        o.onload=function(){
+          window.trackingFunctions.onLoad({appId:"695d0d5c75351c0015784a28"})
+        },
+        document.head.appendChild(o)
+      }
+      initApollo();
+    </script>
+    
     <title>Group3 Co | Digital Product Studio</title>
   </head>
   <body>
