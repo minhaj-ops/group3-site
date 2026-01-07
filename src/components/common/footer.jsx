@@ -205,7 +205,10 @@ const quickLinks = {
     { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
   ],
-  Custom: [{ name: "Microsoft", href: "/microsoft-solutions" }],
+  Services: [
+    { name: "Custom", href: "/services" },
+    { name: "Microsoft", href: "/microsoft-solutions" },
+  ],
   Resources: [
     { name: "Case Studies", href: "/projects" },
     { name: "Privacy Policy", href: "/privacy-policy" },
@@ -330,14 +333,14 @@ const Footer = () => {
               {[
                 {
                   icon: Mail,
-                  text: "info@GROUP3.IO",
-                  href: "mailto:info@GROUP3.IO",
+                  text: "sales@group3.io",
+                  href: "mailto:sales@group3.io",
                 },
-                {
-                  icon: Phone,
-                  text: "934 333 5303",
-                  href: "tel:+19343335303",
-                },
+                // {
+                //   icon: Phone,
+                //   text: "934 333 5303",
+                //   href: "tel:+19343335303",
+                // },
                 {
                   icon: MapPin,
                   text: "8431 252ND ST\nBELLEROSE, NY 11426",

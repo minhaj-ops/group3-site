@@ -9,7 +9,11 @@ import {
   Chip,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { ACCENT_COLOR, COMPANY_NAME, lucideIcons } from "../components/common/config";
+import {
+  ACCENT_COLOR,
+  COMPANY_NAME,
+  lucideIcons,
+} from "../components/common/config";
 
 const { Shield } = lucideIcons;
 
@@ -84,7 +88,7 @@ const PrivacyPolicy = () => {
         `If you have any questions about this Privacy Policy, please contact us at:`,
         `${COMPANY_NAME}`,
         `8431 252ND ST\nBELLEROSE, NY 11426`,
-        `Email: info@GROUP3.IO`,
+        `Email: sales@group3.io`,
       ],
     },
   ];
@@ -98,7 +102,10 @@ const PrivacyPolicy = () => {
         pb: 8,
       }}
     >
-      <Container maxWidth="lg" sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}>
+      <Container
+        maxWidth="lg"
+        sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}
+      >
         {/* Header */}
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
@@ -142,7 +149,12 @@ const PrivacyPolicy = () => {
               lineHeight: 1.7,
             }}
           >
-            Last Updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            Last Updated:{" "}
+            {new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </Typography>
         </MotionBox>
 
@@ -163,7 +175,10 @@ const PrivacyPolicy = () => {
                 mb: 4,
               }}
             >
-              At {COMPANY_NAME}, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              At {COMPANY_NAME}, we are committed to protecting your privacy and
+              ensuring the security of your personal information. This Privacy
+              Policy explains how we collect, use, disclose, and safeguard your
+              information when you visit our website or use our services.
             </Typography>
           </MotionBox>
 
@@ -253,7 +268,9 @@ const PrivacyPolicy = () => {
                 lineHeight: 1.8,
               }}
             >
-              By using our website and services, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of your information as described herein.
+              By using our website and services, you acknowledge that you have
+              read and understood this Privacy Policy and agree to the
+              collection and use of your information as described herein.
             </Typography>
           </MotionBox>
         </Box>
@@ -263,4 +280,3 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
-

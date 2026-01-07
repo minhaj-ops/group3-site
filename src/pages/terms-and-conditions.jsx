@@ -9,7 +9,11 @@ import {
   Chip,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { ACCENT_COLOR, COMPANY_NAME, lucideIcons } from "../components/common/config";
+import {
+  ACCENT_COLOR,
+  COMPANY_NAME,
+  lucideIcons,
+} from "../components/common/config";
 
 const { FileText } = lucideIcons;
 
@@ -111,7 +115,7 @@ const TermsAndConditions = () => {
         `If you have any questions about these Terms and Conditions, please contact us at:`,
         `${COMPANY_NAME}`,
         `8431 252ND ST\nBELLEROSE, NY 11426`,
-        `Email: info@GROUP3.IO`,
+        `Email: sales@group3.io`,
       ],
     },
   ];
@@ -125,7 +129,10 @@ const TermsAndConditions = () => {
         pb: 8,
       }}
     >
-      <Container maxWidth="lg" sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}>
+      <Container
+        maxWidth="lg"
+        sx={{ "@media (min-width: 1200px)": { maxWidth: "1280px" } }}
+      >
         {/* Header */}
         <MotionBox
           initial={{ opacity: 0, y: 30 }}
@@ -169,7 +176,12 @@ const TermsAndConditions = () => {
               lineHeight: 1.7,
             }}
           >
-            Last Updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            Last Updated:{" "}
+            {new Date().toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </Typography>
         </MotionBox>
 
@@ -190,7 +202,10 @@ const TermsAndConditions = () => {
                 mb: 4,
               }}
             >
-              Please read these Terms and Conditions carefully before using our website and services. By accessing or using our services, you agree to be bound by these Terms. If you disagree with any part of these terms, then you may not access the service.
+              Please read these Terms and Conditions carefully before using our
+              website and services. By accessing or using our services, you
+              agree to be bound by these Terms. If you disagree with any part of
+              these terms, then you may not access the service.
             </Typography>
           </MotionBox>
 
@@ -281,7 +296,9 @@ const TermsAndConditions = () => {
                 lineHeight: 1.8,
               }}
             >
-              By using our website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
+              By using our website and services, you acknowledge that you have
+              read, understood, and agree to be bound by these Terms and
+              Conditions.
             </Typography>
           </MotionBox>
         </Box>
@@ -291,6 +308,3 @@ const TermsAndConditions = () => {
 };
 
 export default TermsAndConditions;
-
-
-

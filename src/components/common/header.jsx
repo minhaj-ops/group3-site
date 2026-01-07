@@ -21,7 +21,16 @@ import { Link, useLocation } from "react-router-dom";
 import { ACCENT_COLOR, lucideIcons } from "../common/config";
 import Logo from "./logo";
 
-const { Home, Users, Briefcase, Cloud, Folder, MessageSquare, Mail, ArrowRight } = lucideIcons;
+const {
+  Home,
+  Users,
+  Briefcase,
+  Cloud,
+  Folder,
+  MessageSquare,
+  Mail,
+  ArrowRight,
+} = lucideIcons;
 
 const MotionBox = motion(Box);
 
@@ -72,7 +81,7 @@ const Header = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
       sx={{
-        width: "100vw",
+        width: "100%",
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -85,7 +94,7 @@ const Header = () => {
         sx={{
           position: "absolute",
           top: 0,
-          right: 0,
+          left: 0,
           width: "200px",
           height: "200px",
           borderRadius: "50%",
@@ -98,7 +107,7 @@ const Header = () => {
         sx={{
           position: "absolute",
           bottom: "-50px",
-          left: "-50px",
+          right: "-50px",
           width: "150px",
           height: "150px",
           borderRadius: "50%",
@@ -113,7 +122,7 @@ const Header = () => {
         sx={{
           position: "relative",
           zIndex: 2,
-          p: 2.5,
+          p: 2,
           pb: 1.5,
           background: `linear-gradient(135deg, ${ACCENT_COLOR}10 0%, transparent 100%)`,
           borderBottom: `1px solid ${ACCENT_COLOR}20`,
@@ -180,14 +189,25 @@ const Header = () => {
           flexDirection: "column",
         }}
       >
-        <List sx={{ px: 3, pt: 1.5, pb: 1, flex: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: 0.5 }}>
+        <List
+          sx={{
+            px: 2.5,
+            pt: 1,
+            pb: 1,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            gap: 0.3,
+          }}
+        >
           {navLinks.map((link, index) => {
             const Icon = link.icon;
             const active = isActive(link.href);
             return (
               <motion.div
                 key={link.name}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
                   delay: index * 0.08,
@@ -206,16 +226,15 @@ const Header = () => {
                     to={link.href}
                     onClick={handleNavClick}
                     sx={{
-                      py: 1.5,
+                      py: 1,
                       px: 2.5,
-                      borderRadius: "16px",
-                      mb: 0.3,
+                      borderRadius: "12px",
+                      mb: 0.2,
+                      minHeight: "48px",
                       borderLeft: active
                         ? `4px solid ${ACCENT_COLOR}`
                         : "4px solid transparent",
-                      bgcolor: active
-                        ? `${ACCENT_COLOR}20`
-                        : "transparent",
+                      bgcolor: active ? `${ACCENT_COLOR}20` : "transparent",
                       position: "relative",
                       overflow: "hidden",
                       transition: "all 0.3s ease",
@@ -234,7 +253,7 @@ const Header = () => {
                       },
                       "&:hover": {
                         bgcolor: `${ACCENT_COLOR}15`,
-                        transform: "translateX(5px)",
+                        transform: "translateX(-3px)",
                         "&::before": {
                           opacity: 1,
                         },
@@ -381,7 +400,7 @@ const Header = () => {
         position="fixed"
         component={motion.header}
         initial={{ y: -100 }}
-        animate={{ 
+        animate={{
           y: 0,
           opacity: drawerOpen ? 0 : 1,
         }}
@@ -419,11 +438,7 @@ const Header = () => {
               alignItems: "center",
             }}
           >
-            <Logo
-              variant="default"
-              size="medium"
-              showText={true}
-            />
+            <Logo variant="default" size="medium" showText={true} />
           </Box>
 
           {/* Desktop Navigation */}
@@ -506,11 +521,7 @@ const Header = () => {
                 alignItems: "center",
               }}
             >
-              <Logo
-                variant="mobile"
-                size="small"
-                showText={true}
-              />
+              <Logo variant="mobile" size="small" showText={true} />
             </Box>
 
             <Box sx={{ width: 48 }} />
@@ -555,7 +566,7 @@ const Header = () => {
 
       {/* Mobile Drawer */}
       <Drawer
-        anchor="left"
+        anchor="right"
         open={drawerOpen}
         onClose={toggleDrawer(false)}
         ModalProps={{
@@ -563,15 +574,15 @@ const Header = () => {
         }}
         PaperProps={{
           sx: {
-            width: "100vw",
-            maxWidth: "100vw",
+            width: { xs: "320px", sm: "380px", md: "30vw" },
+            maxWidth: { xs: "85vw", sm: "400px", md: "none" },
             bgcolor: "#0F172A",
             color: "white",
-            borderRight: `2px solid ${ACCENT_COLOR}40`,
+            borderLeft: `2px solid ${ACCENT_COLOR}40`,
             boxShadow: `-4px 0 24px rgba(0, 0, 0, 0.5), 0 0 40px ${ACCENT_COLOR}20`,
             background: `
               linear-gradient(180deg, #0F172A 0%, #1E293B 100%),
-              radial-gradient(circle at top right, ${ACCENT_COLOR}10 0%, transparent 60%)
+              radial-gradient(circle at top left, ${ACCENT_COLOR}10 0%, transparent 60%)
             `,
           },
         }}

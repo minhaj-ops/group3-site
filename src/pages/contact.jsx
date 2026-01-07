@@ -552,15 +552,15 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "info@GROUP3.IO",
-      link: "mailto:info@GROUP3.IO",
+      content: "sales@group3.io",
+      link: "mailto:sales@group3.io",
     },
-    {
-      icon: Phone,
-      title: "Call Us",
-      content: "934 333 5303",
-      link: "tel:+19343335303",
-    },
+    // {
+    //   icon: Phone,
+    //   title: "Call Us",
+    //   content: "934 333 5303",
+    //   link: "tel:+19343335303",
+    // },
     {
       icon: MapPin,
       title: "Visit Us",
@@ -569,7 +569,7 @@ const ContactSection = () => {
     {
       icon: Clock,
       title: "Business Hours",
-      content: "Mon - Fri: 9:00 AM - 6:00 PM PST",
+      content: "Mon - Fri: 9:00 AM - 6:00 PM EST",
     },
   ];
 

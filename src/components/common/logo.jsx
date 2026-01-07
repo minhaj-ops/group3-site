@@ -15,22 +15,22 @@ const Logo = ({
 }) => {
   const sizeMap = {
     small: {
-      width: 28,
-      height: 28,
-      fontSize: "0.9rem",
-      fontSize3: "1.05rem",
+      width: 40,
+      height: 40,
+      fontSize: "1.1rem",
+      fontSize3: "1.3rem",
     },
     medium: {
-      width: 56,
-      height: 56,
-      fontSize: "1.4rem",
-      fontSize3: "1.7rem",
+      width: 80,
+      height: 80,
+      fontSize: "1.8rem",
+      fontSize3: "2.2rem",
     },
     large: {
-      width: 64,
-      height: 64,
-      fontSize: "1.6rem",
-      fontSize3: "1.9rem",
+      width: 96,
+      height: 96,
+      fontSize: "2.1rem",
+      fontSize3: "2.6rem",
     },
   };
 
