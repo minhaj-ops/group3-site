@@ -336,11 +336,11 @@ const Footer = () => {
                   text: "sales@group3.io",
                   href: "mailto:sales@group3.io",
                 },
-                // {
-                //   icon: Phone,
-                //   text: "934 333 5303",
-                //   href: "tel:+19343335303",
-                // },
+                {
+                  icon: Phone,
+                  text: "+1 929 556 9642",
+                  href: "tel:+19295569642",
+                },
                 {
                   icon: MapPin,
                   text: "8431 252ND ST\nBELLEROSE, NY 11426",

@@ -555,12 +555,12 @@ const ContactSection = () => {
       content: "sales@group3.io",
       link: "mailto:sales@group3.io",
     },
-    // {
-    //   icon: Phone,
-    //   title: "Call Us",
-    //   content: "934 333 5303",
-    //   link: "tel:+19343335303",
-    // },
+    {
+      icon: Phone,
+      title: "Call Us",
+      content: "+1 929 556 9642",
+      link: "tel:+19295569642",
+    },
     {
       icon: MapPin,
       title: "Visit Us",
