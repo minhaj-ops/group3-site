@@ -11,6 +11,7 @@ import {
 
 import { motion } from "framer-motion";
 import { ACCENT_COLOR } from "../common/config";
+import { sendNewsletterSubscription } from "../../services/emailService";
 
 const DARK_BG_COLOR = "#0F172A";
 const MEDIUM_DARK_BG_COLOR = "#1C2A4A";
@@ -39,20 +40,26 @@ const NewsletterSubscription = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setMessage("");
 
-    setTimeout(() => {
+    if (!email || !email.includes("@")) {
+      setMessage("Please enter a valid email address.");
       setIsSubmitting(false);
-      if (email && email.includes("@")) {
-        setMessage("Success! Check your inbox for confirmation.");
-        setEmail("");
-      } else {
-        setMessage("Please enter a valid email address.");
-      }
-    }, 1500);
+      return;
+    }
+
+    try {
+      await sendNewsletterSubscription(email);
+      setMessage("Success! Thank you for subscribing.");
+      setEmail("");
+    } catch (error) {
+      setMessage("Oops! Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

@@ -12,6 +12,7 @@ import {
 import { motion } from "framer-motion";
 import SectionHeader from "../common/section-header";
 import { lucideIcons, ACCENT_COLOR } from "../common/config";
+import { sendContactEmail } from "../../services/emailService";
 
 const { Mail, Briefcase, Users, Github, Linkedin } = lucideIcons;
 
@@ -19,17 +20,28 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [sendStatus, setSendStatus] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
     setSendStatus(null);
 
-    setTimeout(() => {
-      setIsSending(false);
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      await sendContactEmail(formData);
       setSendStatus("success");
       e.target.reset();
       setTimeout(() => setSendStatus(null), 5000);
-    }, 2500);
+    } catch (error) {
+      setSendStatus("error");
+      setTimeout(() => setSendStatus(null), 5000);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const inputStyles = {
@@ -245,6 +257,20 @@ const Contact = () => {
                         sx={{ mt: 2, bgcolor: "green.700", color: "white" }}
                       >
                         Message sent successfully! We'll be in touch soon.
+                      </Alert>
+                    </motion.div>
+                  )}
+                  {sendStatus === "error" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Alert
+                        severity="error"
+                        sx={{ mt: 2, bgcolor: "error.dark", color: "white" }}
+                      >
+                        Oops! Something went wrong. Please try again or email us directly at sales@group3.io
                       </Alert>
                     </motion.div>
                   )}

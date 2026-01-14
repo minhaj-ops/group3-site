@@ -23,6 +23,7 @@ import {
   lucideIcons,
 } from "./config";
 import Logo from "./logo";
+import { sendNewsletterSubscription } from "../../services/emailService";
 
 const { Mail, Phone, MapPin, Github, Linkedin, Twitter, ArrowRight } =
   lucideIcons;
@@ -56,15 +57,22 @@ const NewsletterSubscription = () => {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (!email || !email.includes("@")) {
       setSnackbarMessage("Please enter a valid email address.");
       setSnackbarSeverity("error");
-    } else {
-      console.log("Subscribing:", email);
+      setOpenSnackbar(true);
+      return;
+    }
+
+    try {
+      await sendNewsletterSubscription(email);
       setSnackbarMessage(`Thank you for subscribing, ${email}!`);
       setSnackbarSeverity("success");
       setEmail("");
+    } catch (error) {
+      setSnackbarMessage("Oops! Something went wrong. Please try again later.");
+      setSnackbarSeverity("error");
     }
     setOpenSnackbar(true);
   };

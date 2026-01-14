@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { ACCENT_COLOR, lucideIcons } from "../components/common/config";
+import { sendContactEmail } from "../services/emailService";
 
 const {
   Mail,
@@ -263,24 +264,31 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setSnackbar({
-      open: true,
-      message:
-        "Thanks for reaching out! We'll get back to you within 24 hours.",
-      severity: "success",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      budget: "",
-      service: "",
-      message: "",
-    });
+    try {
+      await sendContactEmail(formData);
+      setSnackbar({
+        open: true,
+        message:
+          "Thanks for reaching out! We'll get back to you within 24 hours.",
+        severity: "success",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        budget: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: "Oops! Something went wrong. Please try again or email us directly at sales@group3.io",
+        severity: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputStyles = {
