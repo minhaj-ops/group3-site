@@ -174,7 +174,7 @@ const Contact = () => {
                     <Github size={24} />
                   </Link>
                   <Link
-                    href="#"
+                    href="https://www.linkedin.com/company/group3-co/"
                     aria-label="LinkedIn"
                     sx={{
                       color: "text.secondary",

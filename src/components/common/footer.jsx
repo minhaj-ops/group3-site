@@ -227,7 +227,7 @@ const quickLinks = {
 const Footer = () => {
   const socialLinks = [
     { icon: Github, label: "GitHub", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/group3-co/" },
     { icon: Twitter, label: "Twitter", href: "#" },
   ];
 

@@ -583,7 +583,7 @@ const ContactSection = () => {
 
   const socialLinks = [
     { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/group3-co/", label: "LinkedIn" },
     { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
