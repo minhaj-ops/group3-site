@@ -15,8 +15,10 @@ const EMAILJS_SERVICE_ID =
 const EMAILJS_CONTACT_TEMPLATE_ID =
   import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID || "template_8o6b01q";
 const EMAILJS_NEWSLETTER_TEMPLATE_ID =
-  import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID || "template_8o6b01q";
+  import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID || "template_36hz00c";
 const RECEIVING_EMAIL = "sales@group3.io";
+// const RECEIVING_EMAIL = "minhajalvi10@gmail.com";
+
 
 // Initialize EmailJS
 if (EMAILJS_PUBLIC_KEY) {

@@ -1,0 +1,60 @@
+<!-- 
+  EMAILJS TEMPLATE: Full Contact Form
+  Template ID: Use this for EMAILJS_CONTACT_TEMPLATE_ID
+  Fields: name, email, company, budget, service, message
+  Usage: Contact page form (src/pages/contact.jsx)
+-->
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
+  <div>A contact form submission by {{from_name}} has been received. Kindly respond at your earliest convenience.</div>
+  
+  <div style="margin-top: 20px; padding: 15px 0; border-width: 1px 0; border-style: dashed; border-color: lightgrey;">
+    <table role="presentation" style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top">
+          <div style="padding: 6px 10px; margin: 0 10px; background-color: aliceblue; border-radius: 5px; font-size: 26px;" role="img">
+            👤
+          </div>
+        </td>
+        <td style="vertical-align: top">
+          <div style="color: #2c3e50; font-size: 16px">
+            <strong>{{from_name}}</strong>
+          </div>
+          <div style="color: #7f8c8d; font-size: 13px; margin-top: 5px;">
+            📧 {{from_email}}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+    <table role="presentation" style="width: 100%;">
+      <tr>
+        <td style="padding: 8px 0; color: #2c3e50;">
+          <strong>Company:</strong> {{company}}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #2c3e50;">
+          <strong>Budget:</strong> {{budget}}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; color: #2c3e50;">
+          <strong>Service Interested In:</strong> {{service}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-top: 20px; padding: 15px 0; border-width: 1px 0; border-style: dashed; border-color: lightgrey;">
+    <div style="color: #2c3e50; font-size: 14px; font-weight: 600; margin-bottom: 10px;">Message:</div>
+    <div style="color: #34495e; font-size: 16px; line-height: 1.6; white-space: pre-wrap;">{{message}}</div>
+  </div>
+
+  <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid lightgrey; color: #7f8c8d; font-size: 12px;">
+    <div>Reply to: <a href="mailto:{{reply_to}}" style="color: #3498db;">{{reply_to}}</a></div>
+  </div>
+</div>
+

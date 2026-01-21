@@ -1,0 +1,37 @@
+<!-- 
+  EMAILJS TEMPLATE: Simple Contact Form
+  Template ID: Use this for a separate simple contact form template (optional)
+  Fields: name, email, message
+  Usage: Home page contact form (src/components/home/contact.jsx)
+  Note: You can also use the full template for this form
+-->
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
+  <div>A message by {{from_name}} has been received. Kindly respond at your earliest convenience.</div>
+  
+  <div style="margin-top: 20px; padding: 15px 0; border-width: 1px 0; border-style: dashed; border-color: lightgrey;">
+    <table role="presentation" style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top">
+          <div style="padding: 6px 10px; margin: 0 10px; background-color: aliceblue; border-radius: 5px; font-size: 26px;" role="img">
+            👤
+          </div>
+        </td>
+        <td style="vertical-align: top">
+          <div style="color: #2c3e50; font-size: 16px">
+            <strong>{{from_name}}</strong>
+          </div>
+          <div style="color: #7f8c8d; font-size: 13px; margin-top: 5px;">
+            📧 {{from_email}}
+          </div>
+          <p style="font-size: 16px; color: #34495e; line-height: 1.6; margin-top: 10px; white-space: pre-wrap;">{{message}}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid lightgrey; color: #7f8c8d; font-size: 12px;">
+    <div>Reply to: <a href="mailto:{{reply_to}}" style="color: #3498db;">{{reply_to}}</a></div>
+  </div>
+</div>
+

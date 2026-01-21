@@ -1,0 +1,40 @@
+<!-- 
+  EMAILJS TEMPLATE: Newsletter Subscription
+  Template ID: Use this for EMAILJS_NEWSLETTER_TEMPLATE_ID
+  Fields: subscriber_email
+  Usage: Newsletter subscription forms (footer and about page)
+-->
+
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
+  <div>A new newsletter subscription has been received!</div>
+  
+  <div style="margin-top: 20px; padding: 15px 0; border-width: 1px 0; border-style: dashed; border-color: lightgrey;">
+    <table role="presentation" style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top">
+          <div style="padding: 6px 10px; margin: 0 10px; background-color: #e8f5e9; border-radius: 5px; font-size: 26px;" role="img">
+            📧
+          </div>
+        </td>
+        <td style="vertical-align: top">
+          <div style="color: #2c3e50; font-size: 16px; margin-bottom: 5px;">
+            <strong>New Subscriber</strong>
+          </div>
+          <div style="color: #34495e; font-size: 18px; font-weight: 500;">
+            {{subscriber_email}}
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; color: #7f8c8d; font-size: 13px;">
+    <div>This subscriber has been added to your newsletter mailing list.</div>
+    <div style="margin-top: 10px;">You can reach them at: <a href="mailto:{{subscriber_email}}" style="color: #3498db;">{{subscriber_email}}</a></div>
+  </div>
+
+  <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid lightgrey; color: #7f8c8d; font-size: 12px;">
+    <div>Subscription Date: {{time}}</div>
+  </div>
+</div>
+
