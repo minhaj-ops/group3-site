@@ -79,7 +79,7 @@ const About = () => {
             sx={{ fontWeight: "bold", color: "white", mb: 3 }}
             variants={fadeUp}
           >
-            We are Group3 Co, relentlessly focused on impact.
+            We are Group3, relentlessly focused on impact.
           </MotionTypography>
 
           <MotionTypography
@@ -88,7 +88,7 @@ const About = () => {
             sx={{ mb: 4, lineHeight: 1.7 }}
             variants={fadeUp}
           >
-            Founded on the principle of engineering simplicity, Group3 Co is a
+            Founded on the principle of engineering simplicity, Group3 is a
             collective of seasoned strategists, designers, and engineers. We
             believe that the most powerful solutions are highly functional and
             beautifully intuitive. Our process is collaborative, transparent,

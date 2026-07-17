@@ -161,7 +161,7 @@ const HeroSection = ({ onNavClick }) => {
                 color: ACCENT_COLOR,
               }}
             >
-              Group3 Co
+              Group3
             </Typography>
             <Box sx={{ width: "1px", alignSelf: "stretch", bgcolor: `${ACCENT_COLOR}40` }} />
             <Typography

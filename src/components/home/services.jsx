@@ -128,24 +128,17 @@ const Custom = () => (
         viewport={{ once: true, amount: 0.15 }}
         variants={containerVariants}
         sx={{
-          display: "flex",
-          flexWrap: "wrap",
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr",
+            sm: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          },
           gap: 4,
-          justifyContent: "flex-start",
         }}
       >
         {customData.map((service, index) => (
-          <MotionBox
-            key={index}
-            variants={cardVariants}
-            sx={{
-              width: {
-                xs: "100%",
-                sm: "calc(50% - 16px)",
-                lg: "calc(25% - 24px)",
-              },
-            }}
-          >
+          <MotionBox key={index} variants={cardVariants} sx={{ height: "100%" }}>
             <ServiceCard {...service} index={index} />
           </MotionBox>
         ))}

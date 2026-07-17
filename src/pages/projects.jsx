@@ -218,17 +218,29 @@ const ProjectCard = ({ project, index }) => {
       }}
     >
       {/* Image Container */}
-      <Box sx={{ position: "relative", overflow: "hidden" }}>
+      <Box
+        sx={{
+          position: "relative",
+          overflow: "hidden",
+          height: 260,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: "#0F172A",
+        }}
+      >
         <Box
           component={motion.img}
-          animate={{ scale: isHovered ? 1.1 : 1 }}
+          animate={{ scale: isHovered ? 1.08 : 1 }}
           transition={{ duration: 0.5 }}
           src={project.imageUrl}
           alt={`${project.name} - ${project.category}`}
           sx={{
-            height: 260,
-            width: "100%",
-            objectFit: "cover",
+            width: 140,
+            height: 140,
+            objectFit: "contain",
+            borderRadius: "20px",
+            boxShadow: "0 15px 35px rgba(0,0,0,0.5)",
             display: "block",
           }}
         />

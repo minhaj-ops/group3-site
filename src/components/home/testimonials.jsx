@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Box, Typography, Card, CardContent, IconButton } from "@mui/material";
+import { Box, Typography, Card, CardContent, IconButton, Avatar } from "@mui/material";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeader from "../common/section-header";
@@ -23,7 +23,7 @@ const testimonialVariants = {
   },
 };
 
-const TestimonialCard = ({ quote, author, title }) => (
+const TestimonialCard = ({ quote, author, title, avatar }) => (
   <Card
     sx={{
       bgcolor: "slate.800",
@@ -64,13 +64,32 @@ const TestimonialCard = ({ quote, author, title }) => (
       >
         "{quote}"
       </Typography>
-      <Box sx={{ pt: 3, borderTop: "1px solid #334155" }}>
-        <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
-          {author}
-        </Typography>
-        <Typography variant="body1" sx={{ color: ACCENT_COLOR }}>
-          {title}
-        </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 2,
+          pt: 3,
+          borderTop: "1px solid #334155",
+        }}
+      >
+        <Avatar
+          src={avatar}
+          alt={author}
+          sx={{
+            width: 56,
+            height: 56,
+            border: `2px solid ${ACCENT_COLOR}`,
+          }}
+        />
+        <Box>
+          <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
+            {author}
+          </Typography>
+          <Typography variant="body1" sx={{ color: ACCENT_COLOR }}>
+            {title}
+          </Typography>
+        </Box>
       </Box>
     </CardContent>
   </Card>

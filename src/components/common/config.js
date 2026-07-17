@@ -152,8 +152,7 @@ export const projectsData = [
     category: "Bitcoin Wallet & DeFi",
     description:
       "Built a comprehensive Bitcoin wallet and DeFi platform that scaled to a $60M valuation.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/case-xverse.webp",
     tags: ["DeFi", "Bitcoin", "Web3", "Mobile"],
     stats: { valuation: "$60M", network: "Bitcoin", type: "DeFi" },
     slug: "xverse",
@@ -164,8 +163,7 @@ export const projectsData = [
     category: "Developer Tools",
     description:
       "Built a bug reporting and screen recording platform that developers love — acquired by BrowserStack.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/case-birdeatsbug.jpeg",
     tags: ["SaaS", "Developer Tools", "Screen Recording"],
     stats: { outcome: "Acquired", acquirer: "BrowserStack", users: "Global" },
     slug: "birdeatsbug",
@@ -176,8 +174,7 @@ export const projectsData = [
     category: "Public Notice Platform",
     description:
       "Delivered a public notice platform that doubled newspaper client adoption across the US.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/case-column.jpeg",
     tags: ["Media", "SaaS", "Public Sector"],
     stats: { growth: "2x", clients: "Newspapers", region: "US" },
     slug: "column",
@@ -188,8 +185,7 @@ export const projectsData = [
     category: "Property Marketplace",
     description:
       "Engineered features for the #1 property marketplace in the GCC region serving millions of users.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/case-bayut.png",
     tags: ["Real Estate", "Marketplace", "GCC"],
     stats: { rank: "#1 GCC", region: "Middle East", type: "Marketplace" },
     slug: "bayut",
@@ -200,8 +196,7 @@ export const projectsData = [
     category: "Payment Gateway",
     description:
       "Scaled a payment gateway for SMBs processing over R1 billion in weekly transactions.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "/case-ikhokha.webp",
     tags: ["FinTech", "Payments", "SMBs", "Africa"],
     stats: { transactions: "R1B+/week", market: "Africa", segment: "SMBs" },
     slug: "ikhokha",
@@ -226,8 +221,7 @@ export const caseStudiesData = {
     name: "Xverse",
     tagline: "Bitcoin wallet & DeFi platform",
     category: "Web3 / Cryptocurrency",
-    heroImage:
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "/case-xverse.webp",
     overview:
       "Xverse needed to build a secure, user-friendly Bitcoin wallet that could handle complex DeFi operations while maintaining the simplicity users expect. We helped them scale from zero to a $60M valuation.",
     metrics: [
@@ -284,8 +278,7 @@ export const caseStudiesData = {
     name: "BirdEatsBug",
     tagline: "Bug reporting & screen recording",
     category: "Developer Tools",
-    heroImage:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "/case-birdeatsbug.jpeg",
     overview:
       "BirdEatsBug was revolutionizing how developers report and fix bugs. We built the core recording and replay engine that made bug reports so good, BrowserStack acquired them.",
     metrics: [
@@ -340,8 +333,7 @@ export const caseStudiesData = {
     name: "Column.us",
     tagline: "Public notice platform for newspapers",
     category: "Legal Tech / Media",
-    heroImage:
-      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "/case-column.jpeg",
     overview:
       "Column.us was modernizing how public notices are published in newspapers. We built the platform that doubled their newspaper client base and streamlined a century-old process.",
     metrics: [
@@ -401,8 +393,7 @@ export const caseStudiesData = {
     name: "Bayut",
     tagline: "Property marketplace",
     category: "Real Estate / PropTech",
-    heroImage:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "/case-bayut.png",
     overview:
       "Bayut needed to cement their position as the #1 property platform in the GCC. We built intelligent features that transformed how millions find their homes across the Middle East.",
     metrics: [
@@ -465,8 +456,7 @@ export const caseStudiesData = {
     name: "iKhokha",
     tagline: "Payment gateway for SMBs",
     category: "FinTech / Payments",
-    heroImage:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "/case-ikhokha.webp",
     overview:
       "iKhokha empowers small businesses across South Africa with simple payment solutions. We built the infrastructure that now processes over R1 billion in transactions every week.",
     metrics: [
@@ -522,67 +512,34 @@ export const caseStudiesData = {
   },
 };
 
-// Enhanced testimonials data
+// Testimonials data — founder quotes from real client engagements
 export const testimonialsData = [
   {
     quote:
-      "Group3 Co transformed our abstract idea into a market-ready product in record time. Their technical depth is unmatched.",
-    author: "Dr. Evelyn Reed",
-    title: "CEO, InnovateX Corp",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+      "From ideation to acquisition by BrowserStack—Group3 was instrumental in building a product that developers actually love to use.",
+    author: "Dan",
+    title: "Founder & CEO",
+    avatar: "/founder-dan.jpeg",
     rating: 5,
-    company: "InnovateX Corp",
+    company: "BirdEatsBug (Acquired by BrowserStack)",
   },
   {
     quote:
-      "The design work was impeccable—modern, intuitive, and exactly what our users needed. Highly recommend their UI/UX team.",
-    author: "Marcus Chen",
-    title: "Product Lead, Stellar Solutions",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+      "The team delivered exactly what we needed for our public notice platform. Professional, fast, and they truly get the product vision.",
+    author: "Jake",
+    title: "Founder & CEO",
+    avatar: "/founder-jake.jpg",
     rating: 5,
-    company: "Stellar Solutions",
+    company: "Column.us",
   },
   {
     quote:
-      "We saw a 40% improvement in load times after their cloud architecture audit. True experts in scalability and performance.",
-    author: "Sarah Jones",
-    title: "CTO, GlobalTech",
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80",
+      "Building autonomous investment systems requires precision. Group3 brought both the AI expertise and financial domain knowledge we needed.",
+    author: "Guillem",
+    title: "Founder & CEO",
+    avatar: "/founder-guillem.jpg",
     rating: 5,
-    company: "GlobalTech",
-  },
-  {
-    quote:
-      "From concept to launch, they were professional, responsive, and delivered beyond expectations. A true technology partner.",
-    author: "David Kim",
-    title: "Founder, StartupHub",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-    rating: 5,
-    company: "StartupHub",
-  },
-  {
-    quote:
-      "Their team's expertise in React Native helped us launch on both iOS and Android simultaneously, saving months of development.",
-    author: "Lisa Wang",
-    title: "VP Engineering, MobileFirst Inc",
-    avatar:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=150&q=80",
-    rating: 5,
-    company: "MobileFirst Inc",
-  },
-  {
-    quote:
-      "Group3 Co's DevOps transformation reduced our deployment time from days to minutes. Absolutely game-changing.",
-    author: "James Wilson",
-    title: "Director of Operations, TechScale",
-    avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80",
-    rating: 5,
-    company: "TechScale",
+    company: "CarriedAI",
   },
 ];
 

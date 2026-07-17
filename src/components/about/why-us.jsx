@@ -246,7 +246,7 @@ const WhyChooseUsSection = () => {
           >
             Why Visionary Leaders Choose{" "}
             <Box component="span" sx={{ color: ACCENT_COLOR }}>
-              Group3 Co
+              Group3
             </Box>
           </Typography>
         </MotionBox>

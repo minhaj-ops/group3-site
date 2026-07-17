@@ -259,7 +259,7 @@ const TeamMembersSection = () => {
           >
             Meet the Brilliant Minds Behind{" "}
             <Box component="span" sx={{ color: ACCENT_COLOR }}>
-              Group3 Co
+              Group3
             </Box>
           </MotionTypography>
         </Box>

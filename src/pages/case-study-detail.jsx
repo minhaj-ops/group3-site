@@ -67,18 +67,40 @@ const Hero = ({ caseStudy }) => (
           }}
         />
 
-        <Typography
-          variant="h1"
+        <Box
           sx={{
-            fontSize: { xs: "2.75rem", sm: "3.75rem", md: "4.5rem" },
-            fontWeight: 800,
-            color: "white",
-            lineHeight: 1.05,
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: 2, md: 3 },
             mb: 2,
           }}
         >
-          {caseStudy.name}
-        </Typography>
+          <Box
+            component="img"
+            src={caseStudy.heroImage}
+            alt={caseStudy.name}
+            sx={{
+              width: { xs: 56, sm: 72, md: 88 },
+              height: { xs: 56, sm: 72, md: 88 },
+              objectFit: "contain",
+              borderRadius: "18px",
+              boxShadow: "0 12px 30px rgba(0,0,0,0.5)",
+              flexShrink: 0,
+            }}
+          />
+
+          <Typography
+            variant="h1"
+            sx={{
+              fontSize: { xs: "2.75rem", sm: "3.75rem", md: "4.5rem" },
+              fontWeight: 800,
+              color: "white",
+              lineHeight: 1.05,
+            }}
+          >
+            {caseStudy.name}
+          </Typography>
+        </Box>
 
         <Typography
           variant="h5"
@@ -92,26 +114,6 @@ const Hero = ({ caseStudy }) => (
           {caseStudy.tagline}
         </Typography>
       </motion.div>
-
-      <MotionBox
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.1 }}
-        sx={{
-          borderRadius: "24px",
-          overflow: "hidden",
-          border: "1px solid #334155",
-          mb: 6,
-          boxShadow: `0 25px 60px -20px ${ACCENT_COLOR}30`,
-        }}
-      >
-        <Box
-          component="img"
-          src={caseStudy.heroImage}
-          alt={caseStudy.name}
-          sx={{ width: "100%", height: { xs: 220, sm: 320, md: 420 }, objectFit: "cover", display: "block" }}
-        />
-      </MotionBox>
 
       <Typography
         variant="h6"

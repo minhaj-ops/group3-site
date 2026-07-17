@@ -47,21 +47,34 @@ const ProjectCard = ({ name, category, description, imageUrl, slug }) => (
         flexDirection: "column",
       }}
     >
-      <CardMedia
-        component="img"
-        height="250"
-        image={imageUrl}
-        alt={name}
+      <Box
         sx={{
-          objectFit: "cover",
-          transition: "opacity 0.5s",
+          height: 250,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          bgcolor: "#0F172A",
         }}
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src =
-            "https://placehold.co/400x250/1e293b/FFFFFF?text=Project";
-        }}
-      />
+      >
+        <CardMedia
+          component="img"
+          image={imageUrl}
+          alt={name}
+          sx={{
+            width: 130,
+            height: 130,
+            objectFit: "contain",
+            borderRadius: "18px",
+            boxShadow: "0 15px 35px rgba(0,0,0,0.5)",
+            transition: "opacity 0.5s",
+          }}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src =
+              "https://placehold.co/400x250/1e293b/FFFFFF?text=Project";
+          }}
+        />
+      </Box>
       <Box
         className="overlay"
         sx={{
