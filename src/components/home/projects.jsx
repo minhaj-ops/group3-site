@@ -32,8 +32,8 @@ const cardVariants = {
   },
 };
 
-const ProjectCard = ({ name, category, description, imageUrl }) => (
-  <motion.div variants={cardVariants} whileHover="hover">
+const ProjectCard = ({ name, category, description, imageUrl, slug }) => (
+  <motion.div variants={cardVariants} whileHover="hover" style={{ height: "100%" }}>
     <Card
       sx={{
         bgcolor: "slate.800",
@@ -42,6 +42,9 @@ const ProjectCard = ({ name, category, description, imageUrl }) => (
         overflow: "hidden",
         position: "relative",
         border: "1px solid #334155",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <CardMedia
@@ -75,7 +78,7 @@ const ProjectCard = ({ name, category, description, imageUrl }) => (
       >
         <Button
           component={Link}
-          to="/projects"
+          to={slug ? `/case-studies/${slug}` : "/projects"}
           variant="outlined"
           sx={{
             borderColor: ACCENT_COLOR,
@@ -96,7 +99,7 @@ const ProjectCard = ({ name, category, description, imageUrl }) => (
           View Case Study
         </Button>
       </Box>
-      <CardContent sx={{ p: 3 }}>
+      <CardContent sx={{ p: 3, flexGrow: 1, display: "flex", flexDirection: "column" }}>
         <Typography
           variant="caption"
           sx={{

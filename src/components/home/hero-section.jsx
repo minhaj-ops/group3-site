@@ -25,6 +25,7 @@ const generateLetterPositions = (text) => {
 
 const MotionTypography = motion(Typography);
 const MotionButton = motion(Button);
+const MotionBox = motion(Box);
 
 const HeroSection = ({ onNavClick }) => {
   const [letters, setLetters] = useState([]);
@@ -134,22 +135,49 @@ const HeroSection = ({ onNavClick }) => {
           initial="hidden"
           animate="visible"
         >
-          <MotionTypography
-            variant="subtitle1"
-            sx={{
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: ACCENT_COLOR,
-              mb: 2,
-            }}
+          <MotionBox
             custom={0.1}
             variants={textVariants}
             initial="hidden"
             animate="visible"
+            sx={{
+              display: "inline-flex",
+              alignItems: "center",
+              border: `1px solid ${ACCENT_COLOR}40`,
+              borderRadius: 50,
+              bgcolor: `${ACCENT_COLOR}10`,
+              mb: 4,
+              overflow: "hidden",
+            }}
           >
-            Digital Product Studio
-          </MotionTypography>
+            <Typography
+              sx={{
+                px: 2.5,
+                py: 1,
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: ACCENT_COLOR,
+              }}
+            >
+              Group3 Co
+            </Typography>
+            <Box sx={{ width: "1px", alignSelf: "stretch", bgcolor: `${ACCENT_COLOR}40` }} />
+            <Typography
+              sx={{
+                px: 2.5,
+                py: 1,
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#A0B3D9",
+              }}
+            >
+              AI Products for Founders &amp; Companies
+            </Typography>
+          </MotionBox>
 
           <MotionTypography
             variant="h3"
@@ -157,7 +185,7 @@ const HeroSection = ({ onNavClick }) => {
             sx={{
               fontSize: { xs: "2.2rem", sm: "3.4rem", md: "4.5rem" },
               fontWeight: 800,
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               color: "white",
               mb: 3,
             }}
@@ -166,49 +194,102 @@ const HeroSection = ({ onNavClick }) => {
             initial="hidden"
             animate="visible"
           >
-            We Engineer{" "}
-            <Box component="span" sx={{ position: "relative", zIndex: 2 }}>
-              Future-Ready
+            We are the{" "}
+            <Box
+              component="span"
+              sx={{
+                fontStyle: "italic",
+                fontFamily: "'Playfair Display', serif",
+                color: ACCENT_COLOR,
+              }}
+            >
+              engine
             </Box>{" "}
-            Digital Products.
+            behind other people's AI products.
           </MotionTypography>
 
           <MotionTypography
             variant="h6"
-            sx={{ maxWidth: "600px", mx: "auto", mb: 5, color: ACCENT_COLOR }}
+            sx={{
+              maxWidth: "620px",
+              mx: "auto",
+              mb: 5,
+              color: "#A0B3D9",
+              fontWeight: 400,
+              lineHeight: 1.7,
+            }}
             custom={0.35}
             variants={textVariants}
             initial="hidden"
             animate="visible"
           >
-            Group3 Co partners with visionary leaders to design, build, and scale
-            transformative web and mobile applications.
+            We design, build, and launch full AI-powered products — websites,
+            apps, and dashboards, with the AI already working inside them. Not
+            a slide deck, not a prototype: a real product your customers can
+            use, trusted by founders and companies ever since.
           </MotionTypography>
 
-          <MotionButton
-            component={Link}
-            to="/projects"
-            variant="contained"
-            size="large"
+          <Box
             sx={{
-              bgcolor: ACCENT_COLOR,
-              color: "#0F172A",
-              borderRadius: 50,
-              fontWeight: "bold",
-              padding: "12px 32px",
-              fontSize: "1.125rem",
-              textTransform: "none",
-              boxShadow: `0 8px 15px 5px ${ACCENT_COLOR}40`,
-              textDecoration: "none",
+              display: "flex",
+              gap: 2,
+              justifyContent: "center",
+              flexWrap: "wrap",
             }}
-            whileHover={{ scale: 1.04, boxShadow: `0 14px 30px -6px ${ACCENT_COLOR}60` }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
           >
-            See Our Work
-          </MotionButton>
+            <MotionButton
+              component={Link}
+              to="/contact"
+              variant="contained"
+              size="large"
+              sx={{
+                bgcolor: ACCENT_COLOR,
+                color: "#0F172A",
+                borderRadius: 50,
+                fontWeight: "bold",
+                padding: "12px 32px",
+                fontSize: "1.125rem",
+                textTransform: "none",
+                boxShadow: `0 8px 15px 5px ${ACCENT_COLOR}40`,
+                textDecoration: "none",
+              }}
+              whileHover={{ scale: 1.04, boxShadow: `0 14px 30px -6px ${ACCENT_COLOR}60` }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+            >
+              Book a Free Call
+            </MotionButton>
+
+            <MotionButton
+              component={Link}
+              to="/projects"
+              variant="outlined"
+              size="large"
+              sx={{
+                borderColor: "#334155",
+                color: "white",
+                borderRadius: 50,
+                fontWeight: "bold",
+                padding: "12px 32px",
+                fontSize: "1.125rem",
+                textTransform: "none",
+                textDecoration: "none",
+                "&:hover": {
+                  borderColor: ACCENT_COLOR,
+                  bgcolor: `${ACCENT_COLOR}10`,
+                },
+              }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              See What We Build
+            </MotionButton>
+          </Box>
         </motion.div>
       </Container>
     </Box>

@@ -156,7 +156,8 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
     tags: ["DeFi", "Bitcoin", "Web3", "Mobile"],
     stats: { valuation: "$60M", network: "Bitcoin", type: "DeFi" },
-    link: "#",
+    slug: "xverse",
+    link: "/case-studies/xverse",
   },
   {
     name: "BirdEatsBug",
@@ -167,7 +168,8 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     tags: ["SaaS", "Developer Tools", "Screen Recording"],
     stats: { outcome: "Acquired", acquirer: "BrowserStack", users: "Global" },
-    link: "#",
+    slug: "birdeatsbug",
+    link: "/case-studies/birdeatsbug",
   },
   {
     name: "Column.us",
@@ -178,7 +180,8 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
     tags: ["Media", "SaaS", "Public Sector"],
     stats: { growth: "2x", clients: "Newspapers", region: "US" },
-    link: "#",
+    slug: "column",
+    link: "/case-studies/column",
   },
   {
     name: "Bayut",
@@ -189,7 +192,8 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
     tags: ["Real Estate", "Marketplace", "GCC"],
     stats: { rank: "#1 GCC", region: "Middle East", type: "Marketplace" },
-    link: "#",
+    slug: "bayut",
+    link: "/case-studies/bayut",
   },
   {
     name: "iKhokha",
@@ -200,7 +204,8 @@ export const projectsData = [
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
     tags: ["FinTech", "Payments", "SMBs", "Africa"],
     stats: { transactions: "R1B+/week", market: "Africa", segment: "SMBs" },
-    link: "#",
+    slug: "ikhokha",
+    link: "/case-studies/ikhokha",
   },
   {
     name: "CarriedAI",
@@ -214,6 +219,308 @@ export const projectsData = [
     link: "#",
   },
 ];
+
+// Full case study detail pages
+export const caseStudiesData = {
+  xverse: {
+    name: "Xverse",
+    tagline: "Bitcoin wallet & DeFi platform",
+    category: "Web3 / Cryptocurrency",
+    heroImage:
+      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80",
+    overview:
+      "Xverse needed to build a secure, user-friendly Bitcoin wallet that could handle complex DeFi operations while maintaining the simplicity users expect. We helped them scale from zero to a $60M valuation.",
+    metrics: [
+      { value: "$60M", label: "Valuation" },
+      { value: "500K+", label: "Active Users" },
+      { value: "0", label: "Security Incidents" },
+      { value: "#1", label: "Bitcoin Wallet" },
+    ],
+    challenge: {
+      title: "Building Trust in Web3",
+      text: "The Bitcoin ecosystem lacked a wallet that combined security with usability. Users were losing funds to complex interfaces, and DeFi on Bitcoin was nearly inaccessible to mainstream users.",
+      painPoints: [
+        "Complex Bitcoin scripting for DeFi operations",
+        "Security vulnerabilities in existing solutions",
+        "Poor UX causing user drop-off",
+        "No native support for Ordinals and BRC-20",
+      ],
+    },
+    solution: {
+      title: "Secure & Intuitive Wallet Architecture",
+      text: "We built a wallet that abstracts away complexity while maintaining full user control. Multi-layer security with hardware wallet integration, and a DeFi interface that makes Bitcoin native apps accessible to everyone.",
+      techStack: ["React Native", "TypeScript", "Bitcoin Core", "Stacks", "Rust"],
+      features: [
+        "Hardware wallet integration",
+        "Native Ordinals & BRC-20 support",
+        "One-click DeFi operations",
+        "Multi-signature security",
+        "Cross-chain bridging interface",
+      ],
+    },
+    codeDemo: {
+      agentName: "xverse-agent",
+      lines: [
+        { cmd: "wallet.init(network='bitcoin_mainnet')", output: ["Secure enclave initialized"] },
+        { cmd: "wallet.connect(hardware='ledger')", output: ["Hardware wallet connected. Keys secured."] },
+        {
+          cmd: "wallet.swap(from='BTC', to='STX', amount=0.5)",
+          output: ["Fetching best route... Found: 3 hops", "Estimated output: 12,450 STX"],
+        },
+        {
+          cmd: "wallet.execute()",
+          output: ["Transaction signed. Broadcasting...", "Confirmed in block 840,291"],
+        },
+      ],
+    },
+    testimonial: {
+      quote:
+        "Group3 helped us build the wallet we always envisioned. They understood both the technical complexity and the need for simplicity.",
+      author: "Ken",
+      title: "CEO, Xverse",
+    },
+  },
+  birdeatsbug: {
+    name: "BirdEatsBug",
+    tagline: "Bug reporting & screen recording",
+    category: "Developer Tools",
+    heroImage:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
+    overview:
+      "BirdEatsBug was revolutionizing how developers report and fix bugs. We built the core recording and replay engine that made bug reports so good, BrowserStack acquired them.",
+    metrics: [
+      { value: "Acquired", label: "by BrowserStack" },
+      { value: "90%", label: "Faster Bug Resolution" },
+      { value: "50K+", label: "Teams Using" },
+      { value: "4.9★", label: "Chrome Store Rating" },
+    ],
+    challenge: {
+      title: "Capturing the Uncapturable",
+      text: "Traditional bug reports missed critical context—console logs, network requests, user actions. Developers spent hours reproducing issues that users couldn't explain.",
+      painPoints: [
+        "80% of bug reports lacked reproduction steps",
+        "Average 4 hours to reproduce a reported bug",
+        "Lost context between user and developer",
+        "No visibility into browser state at crash time",
+      ],
+    },
+    solution: {
+      title: "Intelligent Session Capture",
+      text: "We built a lightweight recording engine that captures everything: DOM state, console logs, network requests, and user interactions. All packaged into shareable, replayable bug reports.",
+      techStack: ["TypeScript", "WebRTC", "IndexedDB", "Chrome APIs", "Node.js"],
+      features: [
+        "Lightweight DOM recording (<1% CPU)",
+        "Full network request capture",
+        "Console & error state snapshotting",
+        "Privacy-first data handling",
+        "One-click Jira/GitHub integration",
+      ],
+    },
+    codeDemo: {
+      agentName: "birdeatsbug-agent",
+      lines: [
+        {
+          cmd: "recorder.start(options={network: true, console: true})",
+          output: ["Recording session... Capturing all events."],
+        },
+        { cmd: "user.click(element='#submit-button')", output: ["Captured: Click event + DOM state"] },
+        { cmd: "network.request(url='/api/checkout')", output: ["Captured: 500 Internal Server Error"] },
+        { cmd: "recorder.stop()", output: ["Session packaged: 2.3MB compressed"] },
+        { cmd: "report.share(destination='jira')", output: ["Bug report created: BUG-1234"] },
+      ],
+    },
+    testimonial: {
+      quote:
+        "The engineering quality was exceptional. They built something we couldn't have built ourselves in twice the time.",
+      author: "Dan",
+      title: "Co-founder, BirdEatsBug",
+    },
+  },
+  column: {
+    name: "Column.us",
+    tagline: "Public notice platform for newspapers",
+    category: "Legal Tech / Media",
+    heroImage:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1600&q=80",
+    overview:
+      "Column.us was modernizing how public notices are published in newspapers. We built the platform that doubled their newspaper client base and streamlined a century-old process.",
+    metrics: [
+      { value: "2x", label: "Newspaper Clients" },
+      { value: "70%", label: "Processing Time Saved" },
+      { value: "99.8%", label: "Compliance Rate" },
+      { value: "$0", label: "Billing Errors" },
+    ],
+    challenge: {
+      title: "Digitizing a Legacy Industry",
+      text: "Public notices—legal requirements for government transparency—were still managed via fax and phone. Newspapers struggled with manual workflows, and governments couldn't track compliance.",
+      painPoints: [
+        "Manual fax/phone-based submission process",
+        "No standardized formatting across papers",
+        "Compliance tracking nearly impossible",
+        "Revenue leakage from billing errors",
+      ],
+    },
+    solution: {
+      title: "End-to-End Notice Management",
+      text: "We built a platform that handles the entire lifecycle: submission, formatting, publication scheduling, proof generation, and compliance certification. All automated, all auditable.",
+      techStack: ["Next.js", "PostgreSQL", "AWS Lambda", "Stripe", "SendGrid"],
+      features: [
+        "Self-service notice submission",
+        "Automatic newspaper formatting",
+        "Multi-publication scheduling",
+        "Affidavit generation & e-signing",
+        "Real-time compliance dashboard",
+      ],
+    },
+    codeDemo: {
+      agentName: "column.us-agent",
+      lines: [
+        { cmd: "notice.submit(type='foreclosure', county='harris_tx')", output: ["Notice received. Validating format..."] },
+        {
+          cmd: "notice.format(publications=['houston_chronicle', 'daily_court'])",
+          output: ["Formatted for 2 publications. Proofs generated."],
+        },
+        {
+          cmd: "notice.schedule(dates=['2024-03-15', '2024-03-22'])",
+          output: ["Publication scheduled. Confirmations sent."],
+        },
+        {
+          cmd: "notice.certify()",
+          output: ["Affidavit generated. E-signature requested.", "Compliance: VERIFIED ✓"],
+        },
+      ],
+    },
+    testimonial: {
+      quote:
+        "They understood our industry's quirks and built something that actually works for newspapers, not against them.",
+      author: "Jake",
+      title: "CEO, Column.us",
+    },
+  },
+  bayut: {
+    name: "Bayut",
+    tagline: "Property marketplace",
+    category: "Real Estate / PropTech",
+    heroImage:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+    overview:
+      "Bayut needed to cement their position as the #1 property platform in the GCC. We built intelligent features that transformed how millions find their homes across the Middle East.",
+    metrics: [
+      { value: "#1", label: "Property Portal in GCC" },
+      { value: "10M+", label: "Monthly Visitors" },
+      { value: "40%", label: "Higher Engagement" },
+      { value: "95%", label: "Fraud Detection Rate" },
+    ],
+    challenge: {
+      title: "Scaling Across the GCC",
+      text: "The GCC property market is unique—diverse regulations, multiple languages, and buyers from around the world. Bayut needed to serve all of them seamlessly while outpacing competitors.",
+      painPoints: [
+        "Multi-language, multi-currency requirements",
+        "Complex property verification needs",
+        "High fraud risk in listings",
+        "Search relevance lagging competitors",
+      ],
+    },
+    solution: {
+      title: "Intelligent Property Platform",
+      text: "We built ML-powered search ranking, automated listing verification, and a recommendation engine that understands buyer intent across cultures and languages.",
+      techStack: ["Python", "Elasticsearch", "TensorFlow", "Redis", "Kafka"],
+      features: [
+        "ML-powered search ranking",
+        "Automated listing fraud detection",
+        "Multi-language semantic search",
+        "Personalized recommendations",
+        "Real-time market analytics",
+      ],
+    },
+    codeDemo: {
+      agentName: "bayut-agent",
+      lines: [
+        {
+          cmd: "search.query('3BR apartment dubai marina sea view')",
+          output: ["Intent: Family home, premium, view priority"],
+        },
+        {
+          cmd: "search.rank(results=2847, user_profile=true)",
+          output: ["Personalized ranking applied. Top 20 shown."],
+        },
+        {
+          cmd: "listing.verify(id='DXB-38291')",
+          output: ["Image analysis: AUTHENTIC", "Price check: MARKET RATE", "Agent verification: VERIFIED ✓"],
+        },
+        {
+          cmd: "recommend.similar(user_history=true)",
+          output: ["12 similar properties matched to preferences"],
+        },
+      ],
+    },
+    testimonial: {
+      quote:
+        "The features Group3 built became our competitive moat. They're why we're #1 in the region.",
+      author: "Haider",
+      title: "CEO, Bayut",
+    },
+  },
+  ikhokha: {
+    name: "iKhokha",
+    tagline: "Payment gateway for SMBs",
+    category: "FinTech / Payments",
+    heroImage:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    overview:
+      "iKhokha empowers small businesses across South Africa with simple payment solutions. We built the infrastructure that now processes over R1 billion in transactions every week.",
+    metrics: [
+      { value: "R1B+", label: "Weekly Transactions" },
+      { value: "100K+", label: "Active Merchants" },
+      { value: "99.99%", label: "Uptime" },
+      { value: "< 2s", label: "Settlement Time" },
+    ],
+    challenge: {
+      title: "Payments for the Underserved",
+      text: "Small merchants in South Africa were locked out of digital payments. Banks charged too much, integrations were complex, and support was non-existent for small businesses.",
+      painPoints: [
+        "High transaction fees eating margins",
+        "Complex integration requirements",
+        "Poor connectivity in rural areas",
+        "Limited support for informal merchants",
+      ],
+    },
+    solution: {
+      title: "Resilient Payment Infrastructure",
+      text: "We built a payment system designed for Africa: works offline, syncs when connected, supports multiple payment methods, and provides real-time business insights to merchants.",
+      techStack: ["Go", "PostgreSQL", "gRPC", "Redis", "React Native"],
+      features: [
+        "Offline-first transaction processing",
+        "Multi-method payments (card, mobile, QR)",
+        "Automatic reconciliation",
+        "Real-time merchant dashboard",
+        "Instant settlement options",
+      ],
+    },
+    codeDemo: {
+      agentName: "ikhokha-agent",
+      lines: [
+        {
+          cmd: "terminal.init(merchant='spaza_456')",
+          output: ["Terminal online. Offline cache: 847 pending."],
+        },
+        {
+          cmd: "payment.process(amount=R250, method='tap')",
+          output: ["Card read... Authorizing...", "APPROVED. Receipt sent via WhatsApp."],
+        },
+        {
+          cmd: "sync.batch()",
+          output: ["Uploading 847 offline transactions...", "Reconciled. Merchant balance: R12,450"],
+        },
+        {
+          cmd: "settlement.instant()",
+          output: ["Funds transferred to merchant account."],
+        },
+      ],
+    },
+    testimonial: null,
+  },
+};
 
 // Enhanced testimonials data
 export const testimonialsData = [

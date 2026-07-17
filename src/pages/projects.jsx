@@ -259,6 +259,8 @@ const ProjectCard = ({ project, index }) => {
                 <Button
                   variant="contained"
                   size="small"
+                  component={Link}
+                  to={project.slug ? `/case-studies/${project.slug}` : "#"}
                   endIcon={<ExternalLink size={16} />}
                   sx={{
                     bgcolor: "white",
@@ -272,7 +274,7 @@ const ProjectCard = ({ project, index }) => {
                     },
                   }}
                 >
-                  View Project
+                  View Case Study
                 </Button>
               </motion.div>
             </motion.div>

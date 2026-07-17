@@ -8,6 +8,7 @@ import About from "./pages/about";
 import Services from "./pages/services";
 import MicrosoftSolutions from "./pages/microsoft-solutions";
 import Projects from "./pages/projects";
+import CaseStudyDetail from "./pages/case-study-detail";
 import Testimonials from "./pages/testimonials";
 import Contact from "./pages/contact";
 import PrivacyPolicy from "./pages/privacy-policy";
@@ -136,6 +137,7 @@ export default function App() {
             <Route path="services" element={<Services />} />
             <Route path="microsoft-solutions" element={<MicrosoftSolutions />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="case-studies/:slug" element={<CaseStudyDetail />} />
             <Route path="testimonials" element={<Testimonials />} />
             <Route path="contact" element={<Contact />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
