@@ -60,86 +60,86 @@ export const COMPANY_SLOGAN =
 // Enhanced custom data with more details
 export const customData = [
   {
-    title: "Product Strategy",
-    icon: LayoutDashboard,
+    title: "Agentic AI Products",
+    icon: Brain,
     description:
-      "Defining MVPs, target audience, and business goals to ensure market success.",
+      "Building AI so intuitive it acts without asking. From idea to production in 30 days.",
     details: [
-      "Market Research & Analysis",
-      "Competitive Landscape Mapping",
-      "User Persona Development",
-      "Roadmap Planning",
-      "Go-to-Market Strategy",
+      "AI Model Training",
+      "Autonomous Decision Systems",
+      "Context Engineering",
+      "Agentic Pipelines",
+      "Production Deployment",
     ],
     color: "#FF6347",
   },
   {
-    title: "UI/UX Design",
-    icon: SwatchBook,
+    title: "Context Engineering",
+    icon: Network,
     description:
-      "Crafting intuitive, accessible, and visually stunning digital interfaces that convert.",
+      "If an AI acts 'unprompted,' it means the grounding and context were built so perfectly that the system already knows what to do.",
     details: [
-      "User Research & Testing",
-      "Wireframing & Prototyping",
-      "Visual Design Systems",
-      "Interaction Design",
-      "Accessibility Compliance",
+      "Domain Knowledge Embedding",
+      "System Prompt Architecture",
+      "RAG & Memory Systems",
+      "Behavioral Grounding",
+      "Precision Tuning",
     ],
     color: "#4ECDC4",
   },
   {
-    title: "Full-Stack Development",
-    icon: Code,
+    title: "Zero-Latency Automation",
+    icon: Zap,
     description:
-      "Building scalable, high-performance applications using modern React, Node, and TypeScript stacks.",
+      "Seamless B2B automation monitoring and executing without human intervention.",
     details: [
-      "React & Next.js Applications",
-      "Node.js & Express APIs",
-      "Database Architecture",
-      "Real-time Features",
-      "Third-party Integrations",
+      "B2B Workflow Automation",
+      "Real-time Monitoring",
+      "Event-Driven Pipelines",
+      "API Integrations",
+      "Autonomous Execution",
     ],
     color: "#9B59B6",
   },
   {
-    title: "Cloud Architecture",
-    icon: Cloud,
+    title: "Proactive Intelligence",
+    icon: Workflow,
     description:
-      "Designing secure, resilient, and cost-effective cloud infrastructure (AWS/GCP/Azure).",
+      "Building systems that anticipate needs and execute autonomously before being asked.",
     details: [
-      "Cloud Migration Strategy",
-      "Serverless Architecture",
-      "CI/CD Pipeline Setup",
-      "Security & Compliance",
-      "Cost Optimization",
+      "Predictive Automation",
+      "Intelligent Scheduling",
+      "Anomaly Detection",
+      "Self-Healing Systems",
+      "Autonomous Reporting",
     ],
     color: "#3498DB",
   },
   {
-    title: "Mobile Development",
-    icon: Smartphone,
+    title: "0→1 Product Development",
+    icon: Rocket,
     description:
-      "Native and cross-platform mobile apps that deliver exceptional user experiences.",
+      "Taking your vision from raw idea to a market-ready product with a 30-day delivery guarantee.",
     details: [
-      "React Native Development",
-      "iOS & Android Native",
-      "App Store Optimization",
-      "Push Notifications",
-      "Offline-First Architecture",
+      "Discovery & Architecture",
+      "Core AI Development",
+      "Integration & Polish",
+      "Production Deployment",
+      "Post-Launch Monitoring",
     ],
     color: "#E74C3C",
   },
   {
-    title: "DevOps & Automation",
-    icon: Settings,
+    title: "Full-Stack Product Engineering",
+    icon: Code,
     description:
-      "Streamlining development workflows with automated testing, deployment, and monitoring.",
+      "Not just engineers — Product Engineers who contribute across design, business, and engineering with full-stack product thinking.",
     details: [
-      "Infrastructure as Code",
-      "Automated Testing Suites",
-      "Container Orchestration",
-      "Performance Monitoring",
-      "Incident Response",
+      "UX & Interface Design",
+      "Frontend & Backend Development",
+      "Business Strategy",
+      "Scalable Architecture",
+      "Rapid Iteration",
     ],
     color: "#27AE60",
   },
@@ -148,69 +148,69 @@ export const customData = [
 // Enhanced projects data
 export const projectsData = [
   {
-    name: "SynapseAI",
-    category: "B2B SaaS",
+    name: "Xverse",
+    category: "Bitcoin Wallet & DeFi",
     description:
-      "An intelligent platform leveraging machine learning for automated data synthesis and reporting.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-    tags: ["AI/ML", "React", "Python", "AWS"],
-    stats: { users: "50K+", uptime: "99.9%", satisfaction: "4.9/5" },
-    link: "#",
-  },
-  {
-    name: "EcoTrack Mobile",
-    category: "Consumer App",
-    description:
-      "A gamified application encouraging sustainable habits and tracking carbon footprint.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
-    tags: ["React Native", "Node.js", "MongoDB"],
-    stats: { downloads: "1M+", rating: "4.8", engagement: "85%" },
-    link: "#",
-  },
-  {
-    name: "Quantum-X API",
-    category: "FinTech Infrastructure",
-    description:
-      "High-frequency trading API providing real-time market data and secured transaction endpoints.",
+      "Built a comprehensive Bitcoin wallet and DeFi platform that scaled to a $60M valuation.",
     imageUrl:
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
-    tags: ["Go", "PostgreSQL", "Redis", "Kubernetes"],
-    stats: { requests: "10M/day", latency: "<5ms", uptime: "99.99%" },
+    tags: ["DeFi", "Bitcoin", "Web3", "Mobile"],
+    stats: { valuation: "$60M", network: "Bitcoin", type: "DeFi" },
     link: "#",
   },
   {
-    name: "HealthSync Pro",
-    category: "Healthcare Tech",
+    name: "BirdEatsBug",
+    category: "Developer Tools",
     description:
-      "HIPAA-compliant patient management system with telehealth integration and real-time analytics.",
+      "Built a bug reporting and screen recording platform that developers love — acquired by BrowserStack.",
     imageUrl:
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "PostgreSQL", "WebRTC"],
-    stats: { clinics: "500+", patients: "2M+", compliance: "100%" },
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    tags: ["SaaS", "Developer Tools", "Screen Recording"],
+    stats: { outcome: "Acquired", acquirer: "BrowserStack", users: "Global" },
     link: "#",
   },
   {
-    name: "PropertyFlow",
-    category: "Real Estate",
+    name: "Column.us",
+    category: "Public Notice Platform",
     description:
-      "AI-powered property valuation and market analysis platform for real estate professionals.",
+      "Delivered a public notice platform that doubled newspaper client adoption across the US.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
+    tags: ["Media", "SaaS", "Public Sector"],
+    stats: { growth: "2x", clients: "Newspapers", region: "US" },
+    link: "#",
+  },
+  {
+    name: "Bayut",
+    category: "Property Marketplace",
+    description:
+      "Engineered features for the #1 property marketplace in the GCC region serving millions of users.",
     imageUrl:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "Python", "TensorFlow", "GCP"],
-    stats: { valuations: "100K+", accuracy: "97%", cities: "50+" },
+    tags: ["Real Estate", "Marketplace", "GCC"],
+    stats: { rank: "#1 GCC", region: "Middle East", type: "Marketplace" },
     link: "#",
   },
   {
-    name: "EduVerse",
-    category: "EdTech",
+    name: "iKhokha",
+    category: "Payment Gateway",
     description:
-      "Immersive learning platform with VR capabilities and adaptive learning algorithms.",
+      "Scaled a payment gateway for SMBs processing over R1 billion in weekly transactions.",
     imageUrl:
-      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80",
-    tags: ["Three.js", "React", "WebXR", "Node.js"],
-    stats: { students: "300K+", courses: "1000+", completion: "92%" },
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+    tags: ["FinTech", "Payments", "SMBs", "Africa"],
+    stats: { transactions: "R1B+/week", market: "Africa", segment: "SMBs" },
+    link: "#",
+  },
+  {
+    name: "CarriedAI",
+    category: "Autonomous Investment Engine",
+    description:
+      "Built an autonomous AI-powered investment engine combining AI expertise with deep financial domain knowledge.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    tags: ["AI", "FinTech", "Investment", "Autonomous"],
+    stats: { type: "Autonomous AI", domain: "Finance", tech: "Agentic" },
     link: "#",
   },
 ];
@@ -341,9 +341,9 @@ export const quickLinks = {
     { name: "Cloud Architecture", href: "/services#cloud" },
   ],
   Projects: [
-    { name: "SynapseAI", href: "/projects#synapse" },
-    { name: "EcoTrack Mobile", href: "/projects#ecotrack" },
-    { name: "Quantum-X API", href: "/projects#quantum" },
+    { name: "Xverse", href: "/projects#xverse" },
+    { name: "BirdEatsBug", href: "/projects#birdeatsb" },
+    { name: "Column.us", href: "/projects#column" },
   ],
   Resources: [
     { name: "Support", href: "#" },
